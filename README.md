@@ -18,6 +18,7 @@ The hub has two kinds of users: **users**, who log in with their name and keep t
 - See my personal tier list.
 - Compare two of my rated characters criterion by criterion.
 - Choose a series and take the "Which character are you?" quiz to see my top 3 matches.
+- Take an "Interview with AI" instead: a local AI model asks me 5 questions, I answer in my own words, and I get matched with a character plus a short explanation.
 - See all my past quiz results.
 - Reset my own ratings.
 
@@ -35,11 +36,16 @@ The hub has two kinds of users: **users**, who log in with their name and keep t
    ```
    pip install -r requirements.txt
    ```
-2. Run the app:
+2. *(Optional, for the AI interview)* Install [Ollama](https://ollama.com/download), then download the model:
+   ```
+   ollama pull llama3.2:3b
+   ```
+   Everything else works without Ollama.
+3. Run the app:
    ```
    python main.py
    ```
-3. Use the **arrow keys** and **Enter** to choose from the menus.
+4. Use the **arrow keys** and **Enter** to choose from the menus.
 
 #### Start menu
 - **Log in as user** → type your name. Typing the same name later brings back your data.
@@ -52,7 +58,7 @@ The hub has two kinds of users: **users**, who log in with their name and keep t
 - **Rate a character** → choose a series and a character, then enter a score from 0 to 10 for each criterion.
 - **My tier list** → see your rated characters grouped by tier.
 - **Compare two characters** → pick two of your rated characters.
-- **Which character are you?** → pick a series, answer 8 questions, and get your top 3 matches. **My results** shows your past results.
+- **Which character are you?** → pick **Take the quiz** (8 multiple-choice questions) or **Interview with AI** (5 open questions from the AI), pick a series, and get your top 3 matches. **My results** shows your past results.
 - **Settings** → turn spoiler mode on/off or reset your ratings.
 - **Log out** → go back to the start menu.
 
@@ -73,6 +79,7 @@ UNIT_PROJECT/
 │   ├── characters.py       # browse, filter, search, add, delete
 │   ├── ratings.py          # scores, overall, tiers, compare
 │   ├── quiz.py             # personality quiz algorithm
+│   ├── ai.py               # AI interview with a local Ollama model
 │   ├── users.py            # names, per-user ratings and quiz results
 │   ├── auth.py             # admin password (hashed, never stored as plain text)
 │   └── menus/

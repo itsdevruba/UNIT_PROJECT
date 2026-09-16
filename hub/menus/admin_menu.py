@@ -32,7 +32,8 @@ def quiz_results_menu() -> None:
         if choice == "Open a result":
             result = pick_result(newest_first)
             if result:
-                display.show_quiz_result(result["matches"], result["traits"], result["player"])
+                display.show_quiz_result(result["matches"], result["traits"], result["player"],
+                                         result.get("reason", ""))
 
         elif choice == "Delete a result":
             result = pick_result(newest_first, "Which result do you want to delete?")

@@ -2,6 +2,7 @@
 
 import questionary
 
+from hub import ai
 from hub import characters as chars
 from hub import config
 from hub import display
@@ -106,7 +107,7 @@ def quiz_menu(name: str, characters: list[dict], questions: list[dict]) -> None:
     while True:
         choice = questionary.select(
             "Which character are you?",
-            choices=["Take the quiz", "My results", BACK],
+            choices=["Take the quiz", "Interview with AI", "My results", BACK],
         ).ask()
 
         if choice is None or choice == BACK:
@@ -120,20 +121,28 @@ def quiz_menu(name: str, characters: list[dict], questions: list[dict]) -> None:
                 result = pick_result(mine)
                 if result is None:
                     break
-                display.show_quiz_result(result["matches"], result["traits"], result["player"])
+                display.show_quiz_result(result["matches"], result["traits"], result["player"],
+                                         result.get("reason", ""))
             continue
 
         series = pick_from(f"Match {name} with characters from:", list(chars.get_series(characters)))
         if series is None:
             continue
 
-        display.console.print(f"[dim]Answer {len(questions)} questions honestly. There are no wrong answers.[/dim]")
-        result = quiz.take_quiz(questions, chars.filter_by(characters, "series", series), series, name)
-        if result is None:
-            display.warning("Quiz cancelled.")
-            continue
+        series_characters = chars.filter_by(characters, "series", series)
+        if choice == "Interview with AI":
+            result = ai.take_ai_interview(series_characters, series, name)
+            if result is None:
+                display.warning("The AI interview didn't finish. You can take the regular quiz instead.")
+                continue
+        else:
+            display.console.print(f"[dim]Answer {len(questions)} questions honestly. There are no wrong answers.[/dim]")
+            result = quiz.take_quiz(questions, series_characters, series, name)
+            if result is None:
+                display.warning("Quiz cancelled.")
+                continue
 
-        display.show_quiz_result(result["matches"], result["traits"], name)
+        display.show_quiz_result(result["matches"], result["traits"], name, result.get("reason", ""))
         results = load_json(config.QUIZ_RESULTS_FILE, default=[])
         results.append(result)
         save_json(config.QUIZ_RESULTS_FILE, results)

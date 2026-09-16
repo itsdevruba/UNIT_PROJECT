@@ -87,6 +87,7 @@ def take_quiz(questions: list[dict], characters: list[dict], series: str, player
     return {
         "player": player,
         "series": series,
+        "mode": "Quiz",
         "traits": traits,
         "matches": best_matches(traits, characters),
         "taken_at": datetime.now().strftime("%Y-%m-%d %H:%M"),

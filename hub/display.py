@@ -6,7 +6,7 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 
-from hub.config import CRITERIA, TIERS, TRAITS
+from hub.config import CRITERIA, TIERS, TRAITS, WEAK_MATCH_PERCENT
 
 console = Console()
 
@@ -172,7 +172,8 @@ def show_comparison(first: dict, second: dict, first_rating: dict, second_rating
         console.print("It's a tie.\n")
 
 
-def show_quiz_result(matches: list[tuple[str, int]], user_traits: dict[str, float], player: str = "You") -> None:
+def show_quiz_result(matches: list[tuple[str, int]], user_traits: dict[str, float], player: str = "You",
+                     reason: str = "") -> None:
     """Print the best match, runner-ups, and a simple bar for each trait."""
     if not matches:
         warning("No match found.")
@@ -184,10 +185,16 @@ def show_quiz_result(matches: list[tuple[str, int]], user_traits: dict[str, floa
     if len(matches) > 1:
         runner_ups = " · ".join(f"{name} {score}%" for name, score in matches[1:])
         lines.append(f"[dim]Runner-ups: {runner_ups}[/dim]")
+    if best_score < WEAK_MATCH_PERCENT:
+        lines.append("[dim]Your mix of traits is unusual, so no character fits you perfectly.[/dim]")
+    if reason:
+        lines.append("")
+        lines.append(f"[italic]{reason}[/italic]")
     lines.append("")
     for trait in TRAITS:
         lines.append(f"{trait:<9} {score_bar(user_traits[trait])}")
-    console.print(Panel("\n".join(lines), border_style="yellow", padding=(1, 2), expand=False))
+    console.print(Panel("\n".join(lines), border_style="yellow", padding=(1, 2),
+                        width=min(console.width, 80) if reason else None, expand=bool(reason)))
 
 
 def show_quiz_results(results: list[dict]) -> None:
@@ -200,6 +207,7 @@ def show_quiz_results(results: list[dict]) -> None:
     table.add_column("#", justify="right", style="dim")
     table.add_column("Player", style="bold")
     table.add_column("Series")
+    table.add_column("Type")
     table.add_column("Character", style="yellow")
     table.add_column("Match", justify="right")
     table.add_column("Taken", style="dim")
@@ -207,7 +215,7 @@ def show_quiz_results(results: list[dict]) -> None:
     for number, result in enumerate(results, start=1):
         name, score = result["matches"][0]
         table.add_row(str(number), result["player"], series_label(result["series"]),
-                      name, f"{score}%", result["taken_at"])
+                      result.get("mode", "Quiz"), name, f"{score}%", result["taken_at"])
     console.print(table)
 
 

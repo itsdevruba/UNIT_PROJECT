@@ -36,10 +36,14 @@ TIERS: list[tuple[float, str]] = [
 # ---------- Quiz ----------
 TRAITS: list[str] = ["loyalty", "morality", "temper", "humor", "ambition"]
 TOP_MATCHES = 3
+WEAK_MATCH_PERCENT = 75    # below this, the result says no character fits perfectly
 MAX_NAME_LENGTH = 30
 # Most people pick a mix of answers, so raw scores bunch up around the middle.
 # Stretching them away from 5 lets characters with strong traits be reachable.
 QUIZ_STRETCH = 2.5
+
+# ---------- AI interview (Ollama) ----------
+OLLAMA_MODEL = "llama3.2:3b"
 
 # ---------- Users & admin ----------
 GUEST_NAME = "Guest"          # owner of ratings saved before user accounts existed
