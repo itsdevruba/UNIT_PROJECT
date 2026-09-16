@@ -221,3 +221,4 @@ __marimo__/
 data/user_ratings.json
 data/last_quiz_result.json
 *.bak
+*.tmp
