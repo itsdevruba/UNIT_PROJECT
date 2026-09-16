@@ -3,7 +3,7 @@
 import json
 from pathlib import Path
 
-import display
+from hub import display
 
 
 def load_json(path: Path, default):

@@ -4,8 +4,8 @@ from datetime import datetime
 
 import questionary
 
-import display
-from config import TRAITS, TOP_MATCHES, QUIZ_STRETCH, MAX_NAME_LENGTH
+from hub import display
+from hub.config import TRAITS, TOP_MATCHES, QUIZ_STRETCH
 
 
 def max_points(questions: list[dict]) -> dict[str, int]:
@@ -68,28 +68,6 @@ def best_matches(user: dict[str, float], characters: list[dict], top: int = TOP_
         results.append((character["name"], match))
     results.sort(key=lambda result: result[1], reverse=True)
     return results[:top]
-
-
-def validate_name(raw: str) -> str:
-    """Clean up a player's name. Raise ValueError if it is empty or too long."""
-    name = " ".join(raw.split())
-    if not name:
-        raise ValueError("Please enter a name.")
-    if len(name) > MAX_NAME_LENGTH:
-        raise ValueError(f"Name is too long. Use {MAX_NAME_LENGTH} characters or fewer.")
-    return name
-
-
-def ask_name() -> str | None:
-    """Ask who is taking the quiz. Re-ask on invalid input, None on Ctrl+C."""
-    while True:
-        raw = questionary.text("Who is taking the quiz? Enter a name:").ask()
-        if raw is None:
-            return None
-        try:
-            return validate_name(raw)
-        except ValueError as error:
-            display.error(str(error))
 
 
 def take_quiz(questions: list[dict], characters: list[dict], series: str, player: str) -> dict | None:

@@ -6,7 +6,7 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 
-from config import CRITERIA, TIERS, TRAITS
+from hub.config import CRITERIA, TIERS, TRAITS
 
 console = Console()
 
@@ -123,13 +123,13 @@ def show_rating_result(name: str, overall: float, tier: str) -> None:
                         border_style="green", expand=False))
 
 
-def show_tier_list(tier_list: dict[str, list[tuple[str, float]]]) -> None:
+def show_tier_list(tier_list: dict[str, list[tuple[str, float]]], title: str = "My Tier List") -> None:
     """Print the tier list with a color per tier."""
     if not any(tier_list.values()):
-        warning("You haven't rated any characters yet. Choose 'Rate a character' first.")
+        warning("No rated characters yet.")
         return
 
-    table = Table(title="[bold]My Tier List[/bold]", box=box.ROUNDED, show_header=False, padding=(0, 1))
+    table = Table(title=f"[bold]{title}[/bold]", box=box.ROUNDED, show_header=False, padding=(0, 1))
     table.add_column("Tier", justify="center", width=5)
     table.add_column("Characters")
 
@@ -209,3 +209,24 @@ def show_quiz_results(results: list[dict]) -> None:
         table.add_row(str(number), result["player"], series_label(result["series"]),
                       name, f"{score}%", result["taken_at"])
     console.print(table)
+
+
+def show_users(users: list[dict]) -> None:
+    """Print every user with how many ratings and quiz results they have."""
+    if not users:
+        warning("No users yet.")
+        return
+    table = Table(title=f"[bold]Users[/bold] [dim]({len(users)})[/dim]", box=box.SIMPLE_HEAVY)
+    table.add_column("#", justify="right", style="dim")
+    table.add_column("Name", style="bold")
+    table.add_column("Ratings", justify="right")
+    table.add_column("Quiz results", justify="right")
+    for number, user in enumerate(users, start=1):
+        table.add_row(str(number), user["name"], str(user["ratings"]), str(user["quiz_results"]))
+    console.print(table)
+
+
+def show_traits(character: dict) -> None:
+    """Print a character's quiz traits as bars (admin view)."""
+    lines = [f"{trait:<9} {score_bar(character['traits'][trait])}" for trait in TRAITS]
+    console.print(Panel("\n".join(lines), title=f"[bold]{character['name']} traits[/bold]", expand=False))

@@ -2,7 +2,7 @@
 
 import re
 
-from config import TRAITS
+from hub.config import TRAITS
 
 ROLES: list[str] = ["Protagonist", "Antagonist", "Supporting"]
 
@@ -117,3 +117,17 @@ def add_character(
     }
     characters.append(new_character)
     return new_character
+
+
+def delete_character(characters: list[dict], character_id: str) -> dict:
+    """Remove a custom character and return it.
+
+    Raise ValueError if it doesn't exist or is one of the original characters.
+    """
+    character = find_by_id(characters, character_id)
+    if character is None:
+        raise ValueError("Character not found.")
+    if not character.get("custom"):
+        raise ValueError(f"{character['name']} is an original character and can't be deleted.")
+    characters.remove(character)
+    return character

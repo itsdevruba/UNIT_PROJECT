@@ -4,8 +4,8 @@ from datetime import datetime
 
 import questionary
 
-import display
-from config import CRITERIA, TIERS, MIN_SCORE, MAX_SCORE
+from hub import display
+from hub.config import CRITERIA, TIERS, MIN_SCORE, MAX_SCORE
 
 CRITERIA_HINTS = {
     "writing": "How well written is the character and their story?",
