@@ -1,0 +1,1145 @@
+[
+  {
+    "id": "claude",
+    "name": "Claude",
+    "series": "GTA",
+    "game": "Grand Theft Auto III",
+    "appears_in": [
+      "Grand Theft Auto III",
+      "Grand Theft Auto: San Andreas"
+    ],
+    "year": 2001,
+    "role": "Protagonist",
+    "affiliation": "None",
+    "traits": {
+      "loyalty": 5,
+      "morality": 3,
+      "temper": 6,
+      "humor": 1,
+      "ambition": 5
+    },
+    "bio": "A silent career criminal who is shot and left for dead by his girlfriend during a bank robbery in Liberty City. After escaping custody, he works his way through the city's gangs and mobs, taking any job that brings him closer to revenge.",
+    "spoiler_notes": "Claude finally confronts Catalina and her Colombian Cartel at the end of GTA III, rescuing Maria and killing Catalina. He also appears earlier in the timeline in San Andreas (1992) as Catalina's partner in street racing.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Claude",
+    "custom": false
+  },
+  {
+    "id": "tommy-vercetti",
+    "name": "Tommy Vercetti",
+    "series": "GTA",
+    "game": "Grand Theft Auto: Vice City",
+    "appears_in": [
+      "Grand Theft Auto: Vice City"
+    ],
+    "year": 2002,
+    "role": "Protagonist",
+    "affiliation": "Vercetti Gang",
+    "traits": {
+      "loyalty": 4,
+      "morality": 2,
+      "temper": 9,
+      "humor": 5,
+      "ambition": 10
+    },
+    "bio": "A former enforcer for the Forelli crime family, released after fifteen years in prison. In 1986 he is sent to Vice City to oversee a major drug deal, but when the deal is ambushed he must recover the lost money and drugs before his bosses come for him.",
+    "spoiler_notes": "Tommy discovers that Sonny Forelli was behind the ambush, and that his partner Lance Vance has betrayed him. He kills both of them and becomes the undisputed crime lord of Vice City.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Tommy_Vercetti",
+    "custom": false
+  },
+  {
+    "id": "lance-vance",
+    "name": "Lance Vance",
+    "series": "GTA",
+    "game": "Grand Theft Auto: Vice City",
+    "appears_in": [
+      "Grand Theft Auto: Vice City",
+      "Grand Theft Auto: Vice City Stories"
+    ],
+    "year": 2002,
+    "role": "Supporting",
+    "affiliation": "Vercetti Gang",
+    "traits": {
+      "loyalty": 3,
+      "morality": 3,
+      "temper": 5,
+      "humor": 6,
+      "ambition": 8
+    },
+    "bio": "A flashy, fast-talking hustler who meets Tommy Vercetti while chasing revenge for his brother's death at the ambushed drug deal. He becomes Tommy's partner as they climb Vice City's criminal ladder.",
+    "spoiler_notes": "Lance grows jealous of Tommy's success and secretly sides with Sonny Forelli. Tommy kills him in the final mission. In Vice City Stories (1984) he appears alongside his brother Victor.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Lance_Vance",
+    "custom": false
+  },
+  {
+    "id": "carl-cj-johnson",
+    "name": "Carl \"CJ\" Johnson",
+    "series": "GTA",
+    "game": "Grand Theft Auto: San Andreas",
+    "appears_in": [
+      "Grand Theft Auto: San Andreas"
+    ],
+    "year": 2004,
+    "role": "Protagonist",
+    "affiliation": "Grove Street Families",
+    "traits": {
+      "loyalty": 9,
+      "morality": 6,
+      "temper": 5,
+      "humor": 6,
+      "ambition": 6
+    },
+    "bio": "Carl \"CJ\" Johnson returns to Los Santos in 1992 after five years in Liberty City when his mother is murdered. He reunites with his old gang, Grove Street Families, and is immediately pressured by corrupt police officers into doing their dirty work.",
+    "spoiler_notes": "CJ learns that his friends Big Smoke and Ryder betrayed Grove Street and sided with Officer Tenpenny and the Ballas. After being forced out of Los Santos, he builds a business empire in San Fierro and Las Venturas before returning to take the neighborhood back.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Carl_Johnson",
+    "custom": false
+  },
+  {
+    "id": "big-smoke",
+    "name": "Big Smoke",
+    "series": "GTA",
+    "game": "Grand Theft Auto: San Andreas",
+    "appears_in": [
+      "Grand Theft Auto: San Andreas"
+    ],
+    "year": 2004,
+    "role": "Supporting",
+    "affiliation": "Grove Street Families",
+    "traits": {
+      "loyalty": 2,
+      "morality": 2,
+      "temper": 5,
+      "humor": 7,
+      "ambition": 9
+    },
+    "bio": "Melvin \"Big Smoke\" Harris is a senior member of Grove Street Families and one of CJ's closest childhood friends. He is known for his calm, philosophical talk and his legendary appetite.",
+    "spoiler_notes": "Big Smoke secretly betrayed Grove Street, working with Tenpenny and the Ballas to build a drug empire, and the attack that killed CJ's mother was linked to that betrayal. CJ kills him in his crack den at the end of the game.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Big_Smoke",
+    "custom": false
+  },
+  {
+    "id": "sweet-johnson",
+    "name": "Sweet Johnson",
+    "series": "GTA",
+    "game": "Grand Theft Auto: San Andreas",
+    "appears_in": [
+      "Grand Theft Auto: San Andreas"
+    ],
+    "year": 2004,
+    "role": "Supporting",
+    "affiliation": "Grove Street Families",
+    "traits": {
+      "loyalty": 9,
+      "morality": 6,
+      "temper": 7,
+      "humor": 3,
+      "ambition": 4
+    },
+    "bio": "Sean \"Sweet\" Johnson is CJ's older brother and the leader of Grove Street Families. He is proud, stubborn and determined to rid the neighborhood of drugs, and he has not forgiven CJ for leaving.",
+    "spoiler_notes": "Sweet is wounded in an ambush and sent to prison, which forces CJ to work for Tenpenny to protect him. CJ later gets him released and they fight together in the finale.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Sweet_Johnson",
+    "custom": false
+  },
+  {
+    "id": "frank-tenpenny",
+    "name": "Frank Tenpenny",
+    "series": "GTA",
+    "game": "Grand Theft Auto: San Andreas",
+    "appears_in": [
+      "Grand Theft Auto: San Andreas"
+    ],
+    "year": 2004,
+    "role": "Antagonist",
+    "affiliation": "C.R.A.S.H.",
+    "traits": {
+      "loyalty": 2,
+      "morality": 0,
+      "temper": 8,
+      "humor": 4,
+      "ambition": 9
+    },
+    "bio": "A corrupt officer who leads C.R.A.S.H., the LSPD's anti-gang unit. He blackmails CJ from the moment he returns to Los Santos, threatening to pin a murder on him unless he follows orders.",
+    "spoiler_notes": "Tenpenny murdered Officer Pendelbury himself and worked with Big Smoke. When his charges are dropped, the city erupts in riots, and he dies after crashing a fire truck during a chase with CJ and Sweet.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Frank_Tenpenny",
+    "custom": false
+  },
+  {
+    "id": "niko-bellic",
+    "name": "Niko Bellic",
+    "series": "GTA",
+    "game": "Grand Theft Auto IV",
+    "appears_in": [
+      "Grand Theft Auto IV"
+    ],
+    "year": 2008,
+    "role": "Protagonist",
+    "affiliation": "None",
+    "traits": {
+      "loyalty": 7,
+      "morality": 5,
+      "temper": 7,
+      "humor": 5,
+      "ambition": 3
+    },
+    "bio": "A war veteran from Eastern Europe who arrives in Liberty City in 2008 after his cousin Roman promises him the American Dream. He wants to leave his violent past behind, but he is also quietly searching for the man who betrayed his unit during the war.",
+    "spoiler_notes": "Niko tracks down the traitors, Florian Cravic and Darko Brevic, and can choose whether to kill Darko. The ending depends on the Deal or Revenge choice: Roman is killed at his wedding in Deal, while Kate McReary is killed in Revenge.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Niko_Bellic",
+    "custom": false
+  },
+  {
+    "id": "roman-bellic",
+    "name": "Roman Bellic",
+    "series": "GTA",
+    "game": "Grand Theft Auto IV",
+    "appears_in": [
+      "Grand Theft Auto IV"
+    ],
+    "year": 2008,
+    "role": "Supporting",
+    "affiliation": "None",
+    "traits": {
+      "loyalty": 7,
+      "morality": 6,
+      "temper": 3,
+      "humor": 8,
+      "ambition": 7
+    },
+    "bio": "Niko's optimistic cousin who runs a small taxi company in Broker. He lured Niko to America with exaggerated stories about mansions and sports cars, while actually being deep in gambling debts.",
+    "spoiler_notes": "Roman's debts and friendships repeatedly drag Niko into danger. In the Deal ending, Roman is killed at his own wedding; in the Revenge ending, he survives.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Roman_Bellic",
+    "custom": false
+  },
+  {
+    "id": "johnny-klebitz",
+    "name": "Johnny Klebitz",
+    "series": "GTA",
+    "game": "Grand Theft Auto IV: The Lost and Damned",
+    "appears_in": [
+      "Grand Theft Auto IV",
+      "Grand Theft Auto IV: The Lost and Damned",
+      "Grand Theft Auto V"
+    ],
+    "year": 2009,
+    "role": "Protagonist",
+    "affiliation": "The Lost MC",
+    "traits": {
+      "loyalty": 8,
+      "morality": 4,
+      "temper": 7,
+      "humor": 3,
+      "ambition": 4
+    },
+    "bio": "The vice president of The Lost MC motorcycle club in Alderney. He has kept the club focused on business while the president was away, but tension explodes when Billy Grey returns from rehab looking for war.",
+    "spoiler_notes": "The feud with Billy splits the club. Johnny eventually kills Billy in prison. In GTA V, a broken Johnny is killed by Trevor Philips in Trevor's first scene.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Johnny_Klebitz",
+    "custom": false
+  },
+  {
+    "id": "michael-de-santa",
+    "name": "Michael De Santa",
+    "series": "GTA",
+    "game": "Grand Theft Auto V",
+    "appears_in": [
+      "Grand Theft Auto V"
+    ],
+    "year": 2013,
+    "role": "Protagonist",
+    "affiliation": "None",
+    "traits": {
+      "loyalty": 5,
+      "morality": 4,
+      "temper": 8,
+      "humor": 6,
+      "ambition": 7
+    },
+    "bio": "A retired bank robber living a wealthy life in Los Santos under a secret deal with the FIB. He is bored, in therapy and fighting with his family, and it does not take much to pull him back into crime.",
+    "spoiler_notes": "Michael's real name is Michael Townley. In 2004 he secretly sold out his crew in North Yankton to fake his death, and his friend Brad is buried in his grave. Trevor eventually learns the truth, and one ending lets Franklin kill Michael.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Michael_De_Santa",
+    "custom": false
+  },
+  {
+    "id": "franklin-clinton",
+    "name": "Franklin Clinton",
+    "series": "GTA",
+    "game": "Grand Theft Auto V",
+    "appears_in": [
+      "Grand Theft Auto V",
+      "Grand Theft Auto Online"
+    ],
+    "year": 2013,
+    "role": "Protagonist",
+    "affiliation": "The Families",
+    "traits": {
+      "loyalty": 7,
+      "morality": 5,
+      "temper": 4,
+      "humor": 6,
+      "ambition": 9
+    },
+    "bio": "A young repo man from South Los Santos who works for a shady car dealer and wants more from life than petty gang work. A job gone wrong introduces him to Michael, who becomes his mentor in bigger crimes.",
+    "spoiler_notes": "At the end of GTA V, Franklin must choose to kill Trevor, kill Michael, or try to save both. In GTA Online's The Contract, he runs his own celebrity 'solutions' agency.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Franklin_Clinton",
+    "custom": false
+  },
+  {
+    "id": "trevor-philips",
+    "name": "Trevor Philips",
+    "series": "GTA",
+    "game": "Grand Theft Auto V",
+    "appears_in": [
+      "Grand Theft Auto V"
+    ],
+    "year": 2013,
+    "role": "Protagonist",
+    "affiliation": "Trevor Philips Enterprises",
+    "traits": {
+      "loyalty": 8,
+      "morality": 1,
+      "temper": 10,
+      "humor": 8,
+      "ambition": 6
+    },
+    "bio": "Michael's former heist partner, a violent and unpredictable criminal who runs Trevor Philips Enterprises in the Blaine County desert. He once trained as a military pilot and is still an expert behind the controls of almost anything.",
+    "spoiler_notes": "Trevor believed Michael died during the 2004 heist. When he finds out Michael is alive and learns that Brad was buried in Michael's grave, their friendship nearly collapses. One ending lets Franklin kill Trevor.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Trevor_Philips",
+    "custom": false
+  },
+  {
+    "id": "lamar-davis",
+    "name": "Lamar Davis",
+    "series": "GTA",
+    "game": "Grand Theft Auto V",
+    "appears_in": [
+      "Grand Theft Auto V",
+      "Grand Theft Auto Online"
+    ],
+    "year": 2013,
+    "role": "Supporting",
+    "affiliation": "The Families",
+    "traits": {
+      "loyalty": 8,
+      "morality": 4,
+      "temper": 5,
+      "humor": 10,
+      "ambition": 6
+    },
+    "bio": "Franklin's childhood best friend and a member of the Chamberlain Gangster Families. Loud, reckless and very funny, he constantly drags Franklin into trouble.",
+    "spoiler_notes": "Lamar is captured and nearly killed after a betrayal by the gang member Stretch, but Franklin and the crew rescue him. He later returns in GTA Online missions.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Lamar_Davis",
+    "custom": false
+  },
+  {
+    "id": "lester-crest",
+    "name": "Lester Crest",
+    "series": "GTA",
+    "game": "Grand Theft Auto V",
+    "appears_in": [
+      "Grand Theft Auto V",
+      "Grand Theft Auto Online"
+    ],
+    "year": 2013,
+    "role": "Supporting",
+    "affiliation": "None",
+    "traits": {
+      "loyalty": 5,
+      "morality": 4,
+      "temper": 4,
+      "humor": 6,
+      "ambition": 7
+    },
+    "bio": "A brilliant hacker and heist planner who works from a messy house in Los Santos. He is an old associate of Michael and organizes the crew's biggest jobs.",
+    "spoiler_notes": "Lester plans the game's major heists, including the Union Depository job, and gives Franklin assassination contracts designed to manipulate the stock market.",
+    "community_tier": "",
+    "source": "https://gta.fandom.com/wiki/Lester_Crest",
+    "custom": false
+  },
+  {
+    "id": "arthur-morgan",
+    "name": "Arthur Morgan",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Protagonist",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 9,
+      "morality": 6,
+      "temper": 6,
+      "humor": 6,
+      "ambition": 3
+    },
+    "bio": "A senior enforcer of the Van der Linde gang in 1899, raised by Dutch and Hosea since he was young. After a robbery in Blackwater goes badly wrong, the gang flees into the mountains, and Arthur must help them survive as lawmen and Pinkertons close in.",
+    "spoiler_notes": "Arthur is diagnosed with tuberculosis and begins to question the gang and his own life, seeking redemption. He helps John escape to his family and dies at the end of Chapter 6, from his illness or at Micah's hands depending on the player's choices.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Arthur_Morgan",
+    "custom": false
+  },
+  {
+    "id": "john-marston",
+    "name": "John Marston",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption",
+    "appears_in": [
+      "Red Dead Redemption",
+      "Red Dead Redemption 2"
+    ],
+    "year": 2010,
+    "role": "Protagonist",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 8,
+      "morality": 7,
+      "temper": 6,
+      "humor": 5,
+      "ambition": 3
+    },
+    "bio": "In Red Dead Redemption 2 he is a younger member of the gang, torn between outlaw life and his responsibilities to Abigail and their son. In Red Dead Redemption (1911), federal agents hold his family hostage and force him to hunt down his old gang members.",
+    "spoiler_notes": "John buys a ranch at Beecher's Hope in the RDR2 epilogue. In Red Dead Redemption, after finishing the job for the government, he is killed at his ranch by Edgar Ross's agents, and his son Jack later takes revenge.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/John_Marston",
+    "custom": false
+  },
+  {
+    "id": "dutch-van-der-linde",
+    "name": "Dutch van der Linde",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption",
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 4,
+      "morality": 3,
+      "temper": 7,
+      "humor": 5,
+      "ambition": 10
+    },
+    "bio": "The charismatic leader of the Van der Linde gang, who preaches loyalty and freedom from a changing civilization. He keeps promising the gang one last big score that will let them escape for good.",
+    "spoiler_notes": "Under pressure, Dutch becomes paranoid and ruthless, trusts Micah over his oldest family, and abandons Arthur and John. In Red Dead Redemption (1911), John corners him on a cliff, and Dutch steps off to his death.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Dutch_van_der_Linde",
+    "custom": false
+  },
+  {
+    "id": "micah-bell",
+    "name": "Micah Bell",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 1,
+      "morality": 0,
+      "temper": 9,
+      "humor": 4,
+      "ambition": 8
+    },
+    "bio": "A violent and abrasive outlaw who joined the gang shortly before the story begins. He quickly earns Dutch's favor while clashing with almost everyone else, especially Arthur.",
+    "spoiler_notes": "Micah is the rat who has been informing the Pinkertons. He turns Dutch against Arthur and John and is killed by John, with Sadie and Charles, at Mount Hagen in the 1907 epilogue.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Micah_Bell",
+    "custom": false
+  },
+  {
+    "id": "sadie-adler",
+    "name": "Sadie Adler",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 9,
+      "morality": 6,
+      "temper": 9,
+      "humor": 4,
+      "ambition": 4
+    },
+    "bio": "A widow whose husband is murdered by the O'Driscoll Boys. After the gang takes her in, she transforms from a grieving homesteader into one of its toughest and most fearless fighters.",
+    "spoiler_notes": "Sadie becomes a bounty hunter after the gang falls apart, helps John take down Micah, and talks about starting a new life in South America.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Sadie_Adler",
+    "custom": false
+  },
+  {
+    "id": "hosea-matthews",
+    "name": "Hosea Matthews",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 9,
+      "morality": 7,
+      "temper": 2,
+      "humor": 7,
+      "ambition": 3
+    },
+    "bio": "Dutch's oldest friend and co-founder of the gang. An aging con man who prefers clever schemes over gunfights, he acts as a father figure to Arthur and a calming voice for Dutch.",
+    "spoiler_notes": "Hosea is killed by Pinkerton Agent Milton after the Saint Denis bank robbery goes wrong, which pushes Dutch further toward chaos.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Hosea_Matthews",
+    "custom": false
+  },
+  {
+    "id": "charles-smith",
+    "name": "Charles Smith",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 9,
+      "morality": 9,
+      "temper": 4,
+      "humor": 3,
+      "ambition": 2
+    },
+    "bio": "A quiet, principled member of the gang and one of its best hunters and trackers. He rarely talks about himself, but he is loyal to those who treat people fairly.",
+    "spoiler_notes": "Charles leaves the gang when Dutch loses his way, helps protect Rains Fall's people, later settles in Canada, and joins John and Sadie to kill Micah.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Charles_Smith",
+    "custom": false
+  },
+  {
+    "id": "abigail-marston",
+    "name": "Abigail Marston",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption",
+    "appears_in": [
+      "Red Dead Redemption",
+      "Red Dead Redemption 2"
+    ],
+    "year": 2010,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 8,
+      "morality": 7,
+      "temper": 6,
+      "humor": 5,
+      "ambition": 4
+    },
+    "bio": "Known as Abigail Roberts in Red Dead Redemption 2, she grew up around the gang and is John's partner and the mother of his son Jack. She pushes John to leave outlaw life behind and be a real father.",
+    "spoiler_notes": "Abigail and John marry in the RDR2 epilogue. In Red Dead Redemption, the government holds her hostage to control John; she survives his death but dies herself by 1914.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Abigail_Marston",
+    "custom": false
+  },
+  {
+    "id": "bill-williamson",
+    "name": "Bill Williamson",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption",
+    "appears_in": [
+      "Red Dead Redemption",
+      "Red Dead Redemption 2"
+    ],
+    "year": 2010,
+    "role": "Antagonist",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 5,
+      "morality": 2,
+      "temper": 8,
+      "humor": 3,
+      "ambition": 5
+    },
+    "bio": "A former soldier and a loyal but hot-headed member of the gang who struggles to be taken seriously. By 1911 in Red Dead Redemption, he leads his own gang and is the first man John is sent to find.",
+    "spoiler_notes": "Bill sides with Dutch in the RDR2 ending. In Red Dead Redemption, he escapes to Mexico and is killed by John.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Bill_Williamson",
+    "custom": false
+  },
+  {
+    "id": "javier-escuella",
+    "name": "Javier Escuella",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption",
+    "appears_in": [
+      "Red Dead Redemption",
+      "Red Dead Redemption 2"
+    ],
+    "year": 2010,
+    "role": "Antagonist",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 7,
+      "morality": 4,
+      "temper": 6,
+      "humor": 5,
+      "ambition": 5
+    },
+    "bio": "A charming Mexican revolutionary who joined the gang after fleeing his country. He is loyal, good with a guitar and even better with a gun, and in 1911 he is one of the men John must track down.",
+    "spoiler_notes": "Javier stays with Dutch and Micah when the gang breaks apart. In Red Dead Redemption, John can either kill him or capture him alive in Mexico.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Javier_Escuella",
+    "custom": false
+  },
+  {
+    "id": "colm-o-driscoll",
+    "name": "Colm O'Driscoll",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Antagonist",
+    "affiliation": "O'Driscoll Boys",
+    "traits": {
+      "loyalty": 1,
+      "morality": 0,
+      "temper": 8,
+      "humor": 4,
+      "ambition": 8
+    },
+    "bio": "The leader of the O'Driscoll Boys and Dutch's bitter rival. The two gangs have a long blood feud, and Colm is always ready to hurt Dutch's people.",
+    "spoiler_notes": "Colm briefly captures and tortures Arthur. He is later caught by the law and publicly hanged, with the Pinkertons using the hanging as bait for Dutch's gang.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Colm_O%27Driscoll",
+    "custom": false
+  },
+  {
+    "id": "edgar-ross",
+    "name": "Edgar Ross",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption",
+    "appears_in": [
+      "Red Dead Redemption",
+      "Red Dead Redemption 2"
+    ],
+    "year": 2010,
+    "role": "Supporting",
+    "affiliation": "Bureau of Investigation",
+    "traits": {
+      "loyalty": 3,
+      "morality": 3,
+      "temper": 5,
+      "humor": 2,
+      "ambition": 9
+    },
+    "bio": "A cold, determined federal agent who hunts outlaws for the government. In Red Dead Redemption (1911), he is the man who forces John to track down his old gang by holding his family.",
+    "spoiler_notes": "Ross works with Pinkerton Agent Milton against the gang in RDR2. After John finishes his job, Ross leads the attack that kills him at Beecher's Hope. In 1914, Jack kills Ross in a duel.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Edgar_Ross",
+    "custom": false
+  },
+  {
+    "id": "lenny-summers",
+    "name": "Lenny Summers",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 8,
+      "morality": 7,
+      "temper": 4,
+      "humor": 7,
+      "ambition": 5
+    },
+    "bio": "One of the youngest members of the gang, well-read, quick-witted and good in a fight. He looks up to Arthur and is one of the few people in camp who can get him to relax over a drink.",
+    "spoiler_notes": "Lenny is shot and killed during the gang's escape from Saint Denis after the bank robbery in Chapter 4.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Lenny_Summers",
+    "custom": false
+  },
+  {
+    "id": "mary-beth-gaskill",
+    "name": "Mary-Beth Gaskill",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 7,
+      "morality": 8,
+      "temper": 1,
+      "humor": 5,
+      "ambition": 5
+    },
+    "bio": "A gentle, romantic young woman who works as a pickpocket for the gang. She loves reading and writing stories and is one of the kindest voices in camp.",
+    "spoiler_notes": "Mary-Beth leaves the gang before it collapses and becomes a published romance novelist, meeting John on a train in the epilogue.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Mary-Beth_Gaskill",
+    "custom": false
+  },
+  {
+    "id": "mary-linton",
+    "name": "Mary Linton",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "None",
+    "traits": {
+      "loyalty": 6,
+      "morality": 8,
+      "temper": 3,
+      "humor": 3,
+      "ambition": 4
+    },
+    "bio": "Arthur's former fiancée, who left him years ago because she could not accept his outlaw life. She writes to him again asking for help with her troubled family, and old feelings return.",
+    "spoiler_notes": "Arthur helps Mary with her brother and her father, and considers leaving with her, but his life with the gang keeps getting in the way. Their story ends with a goodbye letter from Mary.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Mary_Linton",
+    "custom": false
+  },
+  {
+    "id": "sean-macguire",
+    "name": "Sean Macguire",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 7,
+      "morality": 4,
+      "temper": 6,
+      "humor": 9,
+      "ambition": 5
+    },
+    "bio": "A loud, cocky young Irish outlaw who never stops talking. Arthur and the gang rescue him from bounty hunters early in the story, and he quickly brings his energy back to camp.",
+    "spoiler_notes": "Sean is shot dead by a sniper during an ambush in Rhodes in Chapter 3, which hits Karen especially hard.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Sean_Macguire",
+    "custom": false
+  },
+  {
+    "id": "kieran-duffy",
+    "name": "Kieran Duffy",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang (formerly O'Driscoll Boys)",
+    "traits": {
+      "loyalty": 7,
+      "morality": 6,
+      "temper": 1,
+      "humor": 3,
+      "ambition": 2
+    },
+    "bio": "A nervous former O'Driscoll captured by the gang in the snow. Most of the camp distrusts him, but he slowly tries to prove himself by caring for the horses.",
+    "spoiler_notes": "Kieran becomes a loyal member and even saves Dutch's life, but he is later captured by the O'Driscolls and his body is sent back to the gang at Shady Belle.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Kieran_Duffy",
+    "custom": false
+  },
+  {
+    "id": "susan-grimshaw",
+    "name": "Susan Grimshaw",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 9,
+      "morality": 5,
+      "temper": 8,
+      "humor": 3,
+      "ambition": 4
+    },
+    "bio": "The strict, sharp-tongued matriarch of the camp who keeps the women working and everyone in line. She has known Dutch for many years and is fiercely devoted to the gang.",
+    "spoiler_notes": "Grimshaw shoots Molly after Molly claims she informed the Pinkertons, and Grimshaw is later killed by Micah in Chapter 6.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Susan_Grimshaw",
+    "custom": false
+  },
+  {
+    "id": "karen-jones",
+    "name": "Karen Jones",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 7,
+      "morality": 4,
+      "temper": 7,
+      "humor": 7,
+      "ambition": 5
+    },
+    "bio": "A bold, hard-drinking con artist who is not afraid to join the men on dangerous jobs. She is funny and confident, and has a soft spot for Sean.",
+    "spoiler_notes": "After Sean's death, Karen spirals into heavy drinking and eventually leaves the gang.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Karen_Jones",
+    "custom": false
+  },
+  {
+    "id": "tilly-jackson",
+    "name": "Tilly Jackson",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 7,
+      "morality": 7,
+      "temper": 4,
+      "humor": 5,
+      "ambition": 4
+    },
+    "bio": "A former member of the Foreman Brothers gang who was taken in by Dutch years ago. She is street-smart, calm under pressure and close friends with the other women in camp.",
+    "spoiler_notes": "Tilly survives the collapse of the gang and builds a respectable new life for herself.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Tilly_Jackson",
+    "custom": false
+  },
+  {
+    "id": "uncle",
+    "name": "Uncle",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption",
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 5,
+      "morality": 3,
+      "temper": 2,
+      "humor": 9,
+      "ambition": 1
+    },
+    "bio": "A lazy old drunk who claims to suffer from lumbago whenever there is work to be done. He is one of the gang's longest companions and one of its funniest.",
+    "spoiler_notes": "Uncle joins John, Abigail and Jack at Beecher's Hope in the epilogue. In Red Dead Redemption (1911), he is killed when government agents attack the ranch.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Uncle",
+    "custom": false
+  },
+  {
+    "id": "orville-swanson",
+    "name": "Reverend Swanson",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 5,
+      "morality": 6,
+      "temper": 1,
+      "humor": 4,
+      "ambition": 2
+    },
+    "bio": "A former preacher who drinks far more than he prays. Dutch keeps him around out of loyalty, and he often ends up needing to be rescued.",
+    "spoiler_notes": "Swanson gets sober, becomes a minister in New York, and returns to marry John and Abigail in the epilogue.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Orville_Swanson",
+    "custom": false
+  },
+  {
+    "id": "simon-pearson",
+    "name": "Simon Pearson",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 7,
+      "morality": 5,
+      "temper": 4,
+      "humor": 6,
+      "ambition": 3
+    },
+    "bio": "The camp's cook and quartermaster, a former Navy man who loves telling sailing stories. He is always asking Arthur to bring back meat and supplies.",
+    "spoiler_notes": "Pearson leaves outlaw life behind and opens a general store in Rhodes, where John meets him in the epilogue.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Simon_Pearson",
+    "custom": false
+  },
+  {
+    "id": "leopold-strauss",
+    "name": "Leopold Strauss",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 5,
+      "morality": 2,
+      "temper": 1,
+      "humor": 1,
+      "ambition": 7
+    },
+    "bio": "An Austrian moneylender who runs the gang's loan business and sends Arthur to collect debts from people who cannot pay.",
+    "spoiler_notes": "One of Strauss's debt collections is where Arthur catches tuberculosis. Arthur later throws him out of the gang.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Leopold_Strauss",
+    "custom": false
+  },
+  {
+    "id": "josiah-trelawny",
+    "name": "Josiah Trelawny",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 5,
+      "morality": 4,
+      "temper": 1,
+      "humor": 8,
+      "ambition": 6
+    },
+    "bio": "A flamboyant con man and old associate of Dutch who comes and goes from camp, often with a scheme or a useful piece of information.",
+    "spoiler_notes": "Arthur discovers that Trelawny secretly has a respectable wife and children living in Saint Denis.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Josiah_Trelawny",
+    "custom": false
+  },
+  {
+    "id": "molly-oshea",
+    "name": "Molly O'Shea",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 4,
+      "morality": 4,
+      "temper": 7,
+      "humor": 2,
+      "ambition": 5
+    },
+    "bio": "Dutch's Irish lover, who feels ignored as Dutch becomes busier and more distant. She often keeps to herself and clashes with the other women.",
+    "spoiler_notes": "In Chapter 6, a drunk Molly claims she told the Pinkertons about the gang, and Susan Grimshaw shoots her. Micah turns out to be the real informant.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Molly_O%27Shea",
+    "custom": false
+  },
+  {
+    "id": "jack-marston",
+    "name": "Jack Marston",
+    "series": "Red Dead",
+    "game": "Red Dead Redemption 2",
+    "appears_in": [
+      "Red Dead Redemption",
+      "Red Dead Redemption 2"
+    ],
+    "year": 2018,
+    "role": "Supporting",
+    "affiliation": "Van der Linde Gang",
+    "traits": {
+      "loyalty": 6,
+      "morality": 8,
+      "temper": 2,
+      "humor": 3,
+      "ambition": 4
+    },
+    "bio": "John and Abigail's young son, who grows up in the camp surrounded by outlaws. He loves stories and books, and Arthur and Hosea often look out for him.",
+    "spoiler_notes": "In Red Dead Redemption, Jack becomes the playable character after John's death, and in 1914 he kills Edgar Ross in revenge.",
+    "community_tier": "",
+    "source": "https://reddead.fandom.com/wiki/Jack_Marston",
+    "custom": false
+  },
+  {
+    "id": "jimmy-hopkins",
+    "name": "Jimmy Hopkins",
+    "series": "Bully",
+    "game": "Bully",
+    "appears_in": [
+      "Bully"
+    ],
+    "year": 2006,
+    "role": "Protagonist",
+    "affiliation": "Bullworth Academy",
+    "traits": {
+      "loyalty": 7,
+      "morality": 5,
+      "temper": 8,
+      "humor": 6,
+      "ambition": 7
+    },
+    "bio": "A rebellious 15-year-old dropped off at Bullworth Academy while his mother goes on her honeymoon. With a long record of expulsions, he has to survive the school's cliques, pranks and fights.",
+    "spoiler_notes": "Jimmy gradually earns the respect of every clique, is framed and expelled after Gary turns the school against him, and returns to defeat Gary and restore order at Bullworth.",
+    "community_tier": "",
+    "source": "https://bully.fandom.com/wiki/Jimmy_Hopkins",
+    "custom": false
+  },
+  {
+    "id": "gary-smith",
+    "name": "Gary Smith",
+    "series": "Bully",
+    "game": "Bully",
+    "appears_in": [
+      "Bully"
+    ],
+    "year": 2006,
+    "role": "Supporting",
+    "affiliation": "None",
+    "traits": {
+      "loyalty": 1,
+      "morality": 2,
+      "temper": 7,
+      "humor": 7,
+      "ambition": 10
+    },
+    "bio": "A sarcastic, manipulative student who befriends Jimmy on his first day and offers to show him how Bullworth really works.",
+    "spoiler_notes": "Gary is the main antagonist. He plays the cliques against Jimmy, turns the whole school against him, and is defeated by Jimmy in a fight on the school roof.",
+    "community_tier": "",
+    "source": "https://bully.fandom.com/wiki/Gary_Smith",
+    "custom": false
+  },
+  {
+    "id": "pete-kowalski",
+    "name": "Pete Kowalski",
+    "series": "Bully",
+    "game": "Bully",
+    "appears_in": [
+      "Bully"
+    ],
+    "year": 2006,
+    "role": "Supporting",
+    "affiliation": "None",
+    "traits": {
+      "loyalty": 7,
+      "morality": 8,
+      "temper": 2,
+      "humor": 4,
+      "ambition": 3
+    },
+    "bio": "A timid, kind-hearted student who is often picked on by others. He becomes one of Jimmy's first friends and gives him honest advice.",
+    "spoiler_notes": "Pete stays loyal to Jimmy even when the school turns against him and is by his side at the end of the game.",
+    "community_tier": "",
+    "source": "https://bully.fandom.com/wiki/Pete_Kowalski",
+    "custom": false
+  },
+  {
+    "id": "russell-northrop",
+    "name": "Russell Northrop",
+    "series": "Bully",
+    "game": "Bully",
+    "appears_in": [
+      "Bully"
+    ],
+    "year": 2006,
+    "role": "Supporting",
+    "affiliation": "Bullies",
+    "traits": {
+      "loyalty": 6,
+      "morality": 4,
+      "temper": 9,
+      "humor": 5,
+      "ambition": 4
+    },
+    "bio": "The huge, short-tempered leader of the Bullies clique. He solves most problems with his fists and does not like the new kid.",
+    "spoiler_notes": "After Jimmy beats him in a fight early in the game, Russell respects him and becomes one of his most useful allies.",
+    "community_tier": "",
+    "source": "https://bully.fandom.com/wiki/Russell_Northrop",
+    "custom": false
+  },
+  {
+    "id": "dr-crabblesnitch",
+    "name": "Dr. Crabblesnitch",
+    "series": "Bully",
+    "game": "Bully",
+    "appears_in": [
+      "Bully"
+    ],
+    "year": 2006,
+    "role": "Supporting",
+    "affiliation": "Bullworth Academy",
+    "traits": {
+      "loyalty": 3,
+      "morality": 4,
+      "temper": 6,
+      "humor": 2,
+      "ambition": 7
+    },
+    "bio": "The strict headmaster of Bullworth Academy. He cares about discipline and the school's reputation, but seems blind to how bad the bullying really is.",
+    "spoiler_notes": "Crabblesnitch expels Jimmy after Gary frames him, then realizes he was wrong after Jimmy exposes the truth.",
+    "community_tier": "",
+    "source": "https://bully.fandom.com/wiki/Dr._Crabblesnitch",
+    "custom": false
+  }
+]

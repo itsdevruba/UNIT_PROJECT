@@ -1,44 +1,54 @@
-# UNIT_PROJECT
+# Rockstar Character Hub 🤠
 
+## Overview
+An interactive command-line app for fans of Rockstar Games. Browse characters from **GTA**, **Red Dead Redemption** and **Bully**, rate them on multiple criteria, build your own tier list, compare characters side by side, and take a personality quiz to find out which character you are most like.
 
-## Based on what you’ve learned until now , create a project of your choosing (impress us with your imagination) . This project must at least satisfy the following minimum requirements :
+## Features & User Stories
 
-- Must be interactive on CLI.
-- Use your coding skills in Python accurately.
-- Organize Your Code into modules & (or packages)
-- Use git & Github to track changes in your code.
+#### As a user I should be able to:
+- Browse all characters and filter them by series, game or role.
+- Search for a character by name.
+- View a character's info (game, role, affiliation, bio) without story spoilers.
+- Turn spoiler mode on to see full story notes.
+- Rate a character from 1 to 10 on writing, growth, charisma, combat and memorability.
+- Get a weighted overall score and a tier (S, A, B, C, D) calculated automatically.
+- Keep my ratings saved after I close the app.
+- See my personal tier list.
+- Compare two characters criterion by criterion.
+- Take the "Which character are you?" quiz and see my top 3 matches.
 
-## Example Project :  An online Grocery Store :
+## Usage
+1. Install the requirements:
+   ```
+   pip install -r requirements.txt
+   ```
+2. Run the app:
+   ```
+   python main.py
+   ```
+3. Use the **arrow keys** and **Enter** to choose from the menus:
+   - **Browse characters** → pick a series, game or role to filter, then open a character.
+   - **Search by name** → type part of a name, e.g. `arthur`.
+   - **Rate a character** → choose a character and enter a score from 1 to 10 for each criterion.
+   - **My tier list** → see all your rated characters grouped by tier.
+   - **Compare two characters** → pick two rated characters to compare.
+   - **Which character are you?** → answer the questions to get your match.
+   - **Settings** → turn spoiler mode on/off or reset your ratings.
+   - **Exit** → close the app (or press `Ctrl+C`).
 
-#### Overview : An online store that sells fruits to customers. This online store has 2 main users. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
+## Project Structure
+```
+main.py          # menus and program flow
+config.py        # paths, criteria, tiers, traits
+storage.py       # load/save JSON
+characters.py    # browse, filter, search
+ratings.py       # scores, overall, tiers, compare
+quiz.py          # personality quiz algorithm
+display.py       # rich tables and colors
+data/
+  characters.json
+  questions.json
+```
 
-### Features & User Stories
-#### As a customer I should be able to do the following :
-- Browse  Products . 
-- View the product info (summary, specs, price, quantity , etc.)
-- Search for Products.
-- Get recommendations for my next purchase based on my purchase history.
-- Add Products to the shopping cart .
-- Remove a product from the shopping cart.
-- List the products in my shopping cart. 
-- Continue to checkout . 
-- Fill in my address for delivery.
-- Get receipt of my purchases.
-- Check delivery status . 
-
-
-
-#### Usage :
- Explain to the user how to use your project . 
- for example:
- - type in search product_name to search for a product.
- - type in list_products to show all the products in the grocery.
- - type in show product_name to get information about this product.
- - type in buy product_name to buy the product . 
- - and so on...
-
-
-### For your project. Edit this README.md file to include your own project name,  overview, user stories, and usage. 
-
-### NOTE: before submitting the final project, please do the following command:
-`pip freeze > requirements.txt` to enable use to know & use the packages used in your project.
+## Credits
+Character information is summarized from the [GTA Wiki](https://gta.fandom.com), [Red Dead Wiki](https://reddead.fandom.com) and [Bully Wiki](https://bully.fandom.com) (CC BY-SA). This is an unofficial student project; all characters belong to Rockstar Games.

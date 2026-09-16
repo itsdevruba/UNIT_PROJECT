@@ -1,0 +1,20 @@
+[
+  {
+    "text": "Your partner gets arrested. What do you do?",
+    "options": {
+      "Break him out tonight": {"loyalty": 2, "temper": 1, "morality": -1},
+      "Pay a lawyer and wait": {"loyalty": 1, "morality": 1},
+      "Take his share of the money": {"loyalty": -2, "ambition": 2},
+      "Crack a joke and move on": {"humor": 2, "loyalty": -1}
+    }
+  },
+  {
+    "text": "Someone insults you in a crowded saloon.",
+    "options": {
+      "Throw the first punch": {"temper": 2, "morality": -1},
+      "Laugh it off and buy him a drink": {"humor": 2, "temper": -2},
+      "Ignore him, you have bigger plans": {"ambition": 1, "temper": -1},
+      "Calmly tell him to apologize": {"morality": 1, "temper": -1}
+    }
+  }
+]
