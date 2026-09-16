@@ -30,15 +30,15 @@ def series_label(series: str) -> str:
 
 
 def success(message: str) -> None:
-    console.print(f"[green]✔ {message}[/green]")
+    console.print(f"[green]{message}[/green]")
 
 
 def error(message: str) -> None:
-    console.print(f"[red]✘ {message}[/red]")
+    console.print(f"[bold red]Error:[/bold red] [red]{message}[/red]")
 
 
 def warning(message: str) -> None:
-    console.print(f"[yellow]⚠ {message}[/yellow]")
+    console.print(f"[bold yellow]Note:[/bold yellow] [yellow]{message}[/yellow]")
 
 
 # ---------- screens ----------
@@ -103,9 +103,9 @@ def show_character_details(character: dict, spoilers: bool = False, rating: dict
     if character.get("spoiler_notes"):
         lines.append("")
         if spoilers:
-            lines.append(f"[bold red]⚠ Spoilers:[/bold red] {character['spoiler_notes']}")
+            lines.append(f"[bold red]Spoilers:[/bold red] {character['spoiler_notes']}")
         else:
-            lines.append("[dim]🔒 Story notes hidden. Turn off spoiler-free mode in Settings to see them.[/dim]")
+            lines.append("[dim]Story notes hidden. Turn off spoiler-free mode in Settings to see them.[/dim]")
 
     console.print(Panel("\n".join(lines), title=f"[bold yellow]{character['name']}[/bold yellow]",
                         border_style="yellow", padding=(1, 2), width=min(console.width, 90)))
@@ -165,21 +165,22 @@ def show_comparison(first: dict, second: dict, first_rating: dict, second_rating
     console.print(table)
 
     if first_rating["overall"] > second_rating["overall"]:
-        console.print(f"🏆 [bold]{first['name']}[/bold] comes out on top.\n")
+        console.print(f"Winner: [bold]{first['name']}[/bold] comes out on top.\n")
     elif second_rating["overall"] > first_rating["overall"]:
-        console.print(f"🏆 [bold]{second['name']}[/bold] comes out on top.\n")
+        console.print(f"Winner: [bold]{second['name']}[/bold] comes out on top.\n")
     else:
-        console.print("🤝 It's a tie.\n")
+        console.print("It's a tie.\n")
 
 
-def show_quiz_result(matches: list[tuple[str, int]], user_traits: dict[str, float]) -> None:
+def show_quiz_result(matches: list[tuple[str, int]], user_traits: dict[str, float], player: str = "You") -> None:
     """Print the best match, runner-ups, and a simple bar for each trait."""
     if not matches:
         warning("No match found.")
         return
 
     best_name, best_score = matches[0]
-    lines = [f"[bold yellow]🤠 You are... {best_name}[/bold yellow]   [green]{best_score}% match[/green]"]
+    verb = "You are" if player == "You" else f"{player} is"
+    lines = [f"[bold yellow]{verb}... {best_name}[/bold yellow]   [green]{best_score}% match[/green]"]
     if len(matches) > 1:
         runner_ups = " · ".join(f"{name} {score}%" for name, score in matches[1:])
         lines.append(f"[dim]Runner-ups: {runner_ups}[/dim]")
@@ -187,3 +188,24 @@ def show_quiz_result(matches: list[tuple[str, int]], user_traits: dict[str, floa
     for trait in TRAITS:
         lines.append(f"{trait:<9} {score_bar(user_traits[trait])}")
     console.print(Panel("\n".join(lines), border_style="yellow", padding=(1, 2), expand=False))
+
+
+def show_quiz_results(results: list[dict]) -> None:
+    """Print everyone's quiz results, newest first."""
+    if not results:
+        warning("Nobody has taken the quiz yet.")
+        return
+
+    table = Table(title=f"[bold]Quiz Results[/bold] [dim]({len(results)})[/dim]", box=box.SIMPLE_HEAVY)
+    table.add_column("#", justify="right", style="dim")
+    table.add_column("Player", style="bold")
+    table.add_column("Series")
+    table.add_column("Character", style="yellow")
+    table.add_column("Match", justify="right")
+    table.add_column("Taken", style="dim")
+
+    for number, result in enumerate(results, start=1):
+        name, score = result["matches"][0]
+        table.add_row(str(number), result["player"], series_label(result["series"]),
+                      name, f"{score}%", result["taken_at"])
+    console.print(table)

@@ -2,19 +2,172 @@
   {
     "text": "Your partner gets arrested. What do you do?",
     "options": {
-      "Break him out tonight": {"loyalty": 2, "temper": 1, "morality": -1},
-      "Pay a lawyer and wait": {"loyalty": 1, "morality": 1},
-      "Take his share of the money": {"loyalty": -2, "ambition": 2},
-      "Crack a joke and move on": {"humor": 2, "loyalty": -1}
+      "Break him out tonight": {
+        "loyalty": 2,
+        "temper": 1,
+        "morality": -1
+      },
+      "Pay a lawyer and wait": {
+        "loyalty": 1,
+        "morality": 1
+      },
+      "Take his share of the money": {
+        "loyalty": -2,
+        "ambition": 2
+      },
+      "Crack a joke and move on": {
+        "humor": 2,
+        "loyalty": -1
+      }
     }
   },
   {
-    "text": "Someone insults you in a crowded saloon.",
+    "text": "Someone insults you in a crowded bar.",
     "options": {
-      "Throw the first punch": {"temper": 2, "morality": -1},
-      "Laugh it off and buy him a drink": {"humor": 2, "temper": -2},
-      "Ignore him, you have bigger plans": {"ambition": 1, "temper": -1},
-      "Calmly tell him to apologize": {"morality": 1, "temper": -1}
+      "Throw the first punch": {
+        "temper": 2,
+        "morality": -1
+      },
+      "Laugh it off and buy him a drink": {
+        "humor": 2,
+        "temper": -2
+      },
+      "Ignore him, you have bigger plans": {
+        "ambition": 1,
+        "temper": -1
+      },
+      "Calmly tell him to apologize": {
+        "morality": 1,
+        "temper": -1
+      }
+    }
+  },
+  {
+    "text": "You find a bag with $50,000 and nobody is watching.",
+    "options": {
+      "Keep it all, this is your big break": {
+        "ambition": 2,
+        "morality": -1
+      },
+      "Split it with your crew": {
+        "loyalty": 2,
+        "ambition": 1
+      },
+      "Return it to its owner": {
+        "morality": 2,
+        "ambition": -2
+      },
+      "Blow it all on one wild night": {
+        "humor": 2,
+        "ambition": -1
+      }
+    }
+  },
+  {
+    "text": "Your boss gives you an order you think is wrong.",
+    "options": {
+      "Do it anyway, loyalty comes first": {
+        "loyalty": 2,
+        "morality": -2
+      },
+      "Refuse and tell him exactly why": {
+        "morality": 2,
+        "temper": 1
+      },
+      "Say yes, then quietly do it your way": {
+        "ambition": 2,
+        "loyalty": -1
+      },
+      "Lose your temper and walk out": {
+        "temper": 2,
+        "loyalty": -2
+      }
+    }
+  },
+  {
+    "text": "How would your friends describe you?",
+    "options": {
+      "The one who makes everyone laugh": {
+        "humor": 2
+      },
+      "The one who never backs down": {
+        "temper": 2,
+        "humor": -1
+      },
+      "The one with the big plans": {
+        "ambition": 2,
+        "humor": -1
+      },
+      "The one you can always count on": {
+        "loyalty": 2,
+        "morality": 1
+      }
+    }
+  },
+  {
+    "text": "A job goes wrong and the cops show up.",
+    "options": {
+      "Shoot your way out": {
+        "temper": 2,
+        "morality": -2
+      },
+      "Stay behind so the others can escape": {
+        "loyalty": 2,
+        "morality": 1,
+        "ambition": -1
+      },
+      "Run and leave the others behind": {
+        "loyalty": -2,
+        "ambition": 1
+      },
+      "Talk your way out with a smile": {
+        "humor": 2,
+        "temper": -1
+      }
+    }
+  },
+  {
+    "text": "What do you really want out of life?",
+    "options": {
+      "Power, money and respect": {
+        "ambition": 2,
+        "morality": -1
+      },
+      "A quiet life with the people I love": {
+        "ambition": -2,
+        "loyalty": 1,
+        "morality": 1
+      },
+      "To have fun every single day": {
+        "humor": 2,
+        "ambition": -1
+      },
+      "To make up for my mistakes": {
+        "morality": 2,
+        "temper": -1
+      }
+    }
+  },
+  {
+    "text": "Someone in your group betrays you.",
+    "options": {
+      "Forgive them, everyone deserves a second chance": {
+        "morality": 2,
+        "temper": -2
+      },
+      "Make them pay, today": {
+        "temper": 2,
+        "morality": -1
+      },
+      "Cut them off quietly and move on": {
+        "ambition": 1,
+        "temper": -1,
+        "loyalty": -1
+      },
+      "Laugh it off, you saw it coming": {
+        "humor": 2,
+        "loyalty": -1
+      }
     }
   }
 ]

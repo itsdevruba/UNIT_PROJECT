@@ -219,6 +219,6 @@ __marimo__/
 
 # Project-specific
 data/user_ratings.json
-data/last_quiz_result.json
+data/quiz_results.json
 *.bak
 *.tmp

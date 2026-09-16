@@ -1,4 +1,4 @@
-# Rockstar Character Hub 🤠
+# Rockstar Character Hub
 
 ## Overview
 An interactive command-line app for fans of Rockstar Games. Browse characters from **GTA**, **Red Dead Redemption** and **Bully**, rate them on multiple criteria, build your own tier list, compare characters side by side, and take a personality quiz to find out which character you are most like.
@@ -6,16 +6,18 @@ An interactive command-line app for fans of Rockstar Games. Browse characters fr
 ## Features & User Stories
 
 #### As a user I should be able to:
-- Browse all characters and filter them by series, game or role.
+- Browse all characters and filter them by game or role.
 - Search for a character by name.
 - View a character's info (game, role, affiliation, bio) without story spoilers.
 - Turn spoiler mode on to see full story notes.
-- Rate a character from 1 to 10 on writing, growth, charisma, combat and memorability.
+- Rate a character from 0 to 10 on writing, growth, charisma, combat and memorability.
 - Get a weighted overall score and a tier (S, A, B, C, D) calculated automatically.
 - Keep my ratings saved after I close the app.
 - See my personal tier list.
 - Compare two characters criterion by criterion.
-- Take the "Which character are you?" quiz and see my top 3 matches.
+- Choose a series (GTA, Red Dead or Bully) and take the "Which character are you?" quiz to see my top 3 matches.
+- Enter my name before the quiz, so friends can take it too.
+- See everyone's quiz results in one table and open any of them.
 
 ## Usage
 1. Install the requirements:
@@ -27,12 +29,12 @@ An interactive command-line app for fans of Rockstar Games. Browse characters fr
    python main.py
    ```
 3. Use the **arrow keys** and **Enter** to choose from the menus:
-   - **Browse characters** → pick a series, game or role to filter, then open a character.
+   - **Browse characters** → pick a game or role to filter, then open a character.
    - **Search by name** → type part of a name, e.g. `arthur`.
-   - **Rate a character** → choose a character and enter a score from 1 to 10 for each criterion.
+   - **Rate a character** → choose a character and enter a score from 0 to 10 for each criterion.
    - **My tier list** → see all your rated characters grouped by tier.
    - **Compare two characters** → pick two rated characters to compare.
-   - **Which character are you?** → answer the questions to get your match.
+   - **Which character are you?** → enter a name, pick a series, answer 8 questions, and get your top 3 matches. Choose **All results** to see everyone who took it.
    - **Settings** → turn spoiler mode on/off or reset your ratings.
    - **Exit** → close the app (or press `Ctrl+C`).
 

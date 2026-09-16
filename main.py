@@ -6,6 +6,7 @@ from questionary import Choice
 import characters as chars
 import config
 import display
+import quiz
 import ratings as rt
 from storage import load_json, save_json
 
@@ -44,9 +45,13 @@ def pick_character(options: list[dict], ratings: dict, message: str = "Choose a 
     return chars.find_by_id(options, character_id)
 
 
-def pick_from(message: str, options: list[str]) -> str | None:
-    """Select one string from `options` with a Back choice. Returns None on Back or Ctrl+C."""
-    answer = questionary.select(message, choices=sorted(options) + [BACK]).ask()
+def pick_from(message: str, options: list[str], keep_order: bool = False) -> str | None:
+    """Select one string from `options` with a Back choice. Returns None on Back or Ctrl+C.
+
+    Options are sorted alphabetically unless `keep_order` is True.
+    """
+    ordered = list(options) if keep_order else sorted(options)
+    answer = questionary.select(message, choices=ordered + [BACK]).ask()
     if answer is None or answer == BACK:
         return None
     return answer
@@ -70,11 +75,11 @@ def save_ratings(ratings: dict) -> None:
 # ---------- menus ----------
 
 def browse_menu(characters: list[dict], ratings: dict, settings: dict) -> None:
-    """Filter by series / game / role, then show the table and let the user open a character."""
+    """Filter by game or role, then show the table and let the user open a character."""
     while True:
         mode = questionary.select(
             "Browse by:",
-            choices=["All characters", "Series", "Game", "Role", BACK],
+            choices=["All characters", "Game", "Role", BACK],
         ).ask()
 
         if mode is None or mode == BACK:
@@ -83,14 +88,8 @@ def browse_menu(characters: list[dict], ratings: dict, settings: dict) -> None:
             view_characters(characters, ratings, settings, "All characters")
             continue
 
-        if mode == "Series":
-            value = pick_from("Which series?", list(chars.get_series(characters)))
-            field = "series"
-        elif mode == "Game":
-            series = pick_from("Which series?", list(chars.get_series(characters)))
-            if series is None:
-                continue
-            value = pick_from("Which game?", list(chars.get_games(characters, series)))
+        if mode == "Game":
+            value = pick_from("Which game?", chars.get_games_by_year(characters), keep_order=True)
             field = "game"
         else:
             value = pick_from("Which role?", list(chars.get_roles(characters)))
@@ -155,9 +154,57 @@ def compare_menu(characters: list[dict], ratings: dict) -> None:
     display.show_comparison(first, second, first_rating, second_rating, winners)
 
 
-def quiz_menu(characters: list[dict]) -> None:
-    """Quick quiz / My last result / Back."""
-    display.warning("Coming soon: find out which Rockstar character you are!")
+def quiz_menu(characters: list[dict], questions: list[dict]) -> None:
+    """Take the quiz / see everyone's results / back."""
+    while True:
+        choice = questionary.select(
+            "Which character are you?",
+            choices=["Take the quiz", "All results", BACK],
+        ).ask()
+
+        if choice is None or choice == BACK:
+            return
+        if choice == "All results":
+            results_menu()
+            continue
+
+        player = quiz.ask_name()
+        if player is None:
+            continue
+        series = pick_from(f"Hi {player}! Match you with characters from:", list(chars.get_series(characters)))
+        if series is None:
+            continue
+
+        display.console.print(f"[dim]Answer {len(questions)} questions honestly. There are no wrong answers.[/dim]")
+        result = quiz.take_quiz(questions, chars.filter_by(characters, "series", series), series, player)
+        if result is None:
+            display.warning("Quiz cancelled.")
+            continue
+
+        display.show_quiz_result(result["matches"], result["traits"], player)
+        results = load_json(config.QUIZ_RESULTS_FILE, default=[])
+        results.append(result)
+        save_json(config.QUIZ_RESULTS_FILE, results)
+
+
+def results_menu() -> None:
+    """Show all quiz results (newest first) and let the user open one."""
+    results = load_json(config.QUIZ_RESULTS_FILE, default=[])
+    results.reverse()
+    display.show_quiz_results(results)
+    if not results:
+        return
+
+    while True:
+        choices = [
+            Choice(title=f"{r['player']}  ({r['series']}, {r['taken_at']})", value=str(index))
+            for index, r in enumerate(results)
+        ]
+        picked = questionary.select("Open a result:", choices=choices + [BACK]).ask()
+        if picked is None or picked == BACK:
+            return
+        result = results[int(picked)]
+        display.show_quiz_result(result["matches"], result["traits"], result["player"])
 
 
 def settings_menu(ratings: dict, settings: dict) -> None:
@@ -184,6 +231,7 @@ def settings_menu(ratings: dict, settings: dict) -> None:
 def main() -> None:
     characters = load_json(config.CHARACTERS_FILE, default=[])
     ratings = load_json(config.RATINGS_FILE, default={})
+    questions = load_json(config.QUESTIONS_FILE, default=[])
     settings = {"spoilers": False}
 
     display.show_banner()
@@ -208,13 +256,13 @@ def main() -> None:
             elif choice == "Compare two characters":
                 compare_menu(characters, ratings)
             elif choice == "Which character are you?":
-                quiz_menu(characters)
+                quiz_menu(characters, questions)
             elif choice == "Settings":
                 settings_menu(ratings, settings)
     except KeyboardInterrupt:
         pass
     finally:
-        display.console.print("\n[bold]Goodbye, partner. 🤠[/bold]")
+        display.console.print("\n[bold]Goodbye, partner.[/bold]")
 
 
 if __name__ == "__main__":

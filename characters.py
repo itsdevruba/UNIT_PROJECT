@@ -21,6 +21,15 @@ def get_games(characters: list[dict], series: str | None = None) -> set[str]:
     return games
 
 
+def get_games_by_year(characters: list[dict]) -> list[str]:
+    """Return unique game names ordered by release year (oldest first)."""
+    years = {}
+    for character in characters:
+        year = character.get("year") or 9999
+        years[character["game"]] = min(year, years.get(character["game"], 9999))
+    return sorted(years, key=lambda game: (years[game], game))
+
+
 def get_roles(characters: list[dict]) -> set[str]:
     """Return the unique roles used in the data."""
     return {character["role"] for character in characters}

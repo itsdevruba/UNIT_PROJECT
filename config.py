@@ -8,10 +8,10 @@ DATA_DIR = BASE_DIR / "data"
 CHARACTERS_FILE = DATA_DIR / "characters.json"
 RATINGS_FILE = DATA_DIR / "user_ratings.json"
 QUESTIONS_FILE = DATA_DIR / "questions.json"
-QUIZ_RESULT_FILE = DATA_DIR / "last_quiz_result.json"
+QUIZ_RESULTS_FILE = DATA_DIR / "quiz_results.json"
 
 # ---------- Rating ----------
-MIN_SCORE = 1
+MIN_SCORE = 0
 MAX_SCORE = 10
 
 # criterion name -> weight (weights must add up to 1.0)
@@ -35,6 +35,10 @@ TIERS: list[tuple[float, str]] = [
 # ---------- Quiz ----------
 TRAITS: list[str] = ["loyalty", "morality", "temper", "humor", "ambition"]
 TOP_MATCHES = 3
+MAX_NAME_LENGTH = 30
+# Most people pick a mix of answers, so raw scores bunch up around the middle.
+# Stretching them away from 5 lets characters with strong traits be reachable.
+QUIZ_STRETCH = 2.5
 
 # ---------- Settings ----------
 SERIES: list[str] = ["GTA", "Red Dead", "Bully"]
