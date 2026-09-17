@@ -30,6 +30,8 @@ def main() -> None:
         display.error(f"No characters found. Make sure {config.CHARACTERS_FILE} exists.")
         return
     all_ratings = load_ratings()
+    if config.DEMO_MODE:
+        display.warning("Demo mode is on: the admin menu opens without a password.")
 
     try:
         while True:
@@ -42,7 +44,7 @@ def main() -> None:
                 if name:
                     run_user_session(name, characters, all_ratings, questions)
             elif choice == "Log in as admin":
-                if admin_login():
+                if config.DEMO_MODE or admin_login():
                     run_admin_session(characters, all_ratings)
     except KeyboardInterrupt:
         pass

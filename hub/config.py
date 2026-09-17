@@ -46,6 +46,9 @@ QUIZ_STRETCH = 2.5
 OLLAMA_MODEL = "llama3.2:3b"
 
 # ---------- Users & admin ----------
+# Demo mode lets anyone try the app right away: the admin menu opens without a password.
+# Set it to False to require the admin password.
+DEMO_MODE = True
 GUEST_NAME = "Guest"  # owner of ratings saved before user accounts existed
 MIN_PASSWORD_LENGTH = 4
 MAX_LOGIN_ATTEMPTS = 3

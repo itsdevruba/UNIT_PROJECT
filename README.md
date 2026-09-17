@@ -49,7 +49,7 @@ The hub has two kinds of users: **users**, who log in with their name and keep t
 
 #### Start menu
 - **Log in as user** → type your name. Typing the same name later brings back your data.
-- **Log in as admin** → type the admin password. The first time, you will be asked to create one.
+- **Log in as admin** → opens the admin menu. Demo mode is on by default, so no password is needed. To require a password, set `DEMO_MODE = False` in `hub/config.py`; the first time, you will be asked to create one.
 - **Exit** → close the app (or press `Ctrl+C`).
 
 #### User menu
