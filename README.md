@@ -90,5 +90,27 @@ UNIT_PROJECT/
 ```
 Files created while using the app (not tracked by git): `data/user_ratings.json`, `data/quiz_results.json`.
 
+## Libraries Used
+
+#### External libraries (installed with `pip install -r requirements.txt`)
+| Library | What it's used for |
+|---|---|
+| [rich](https://pypi.org/project/rich/) | Colored text, tables, panels and the loading spinner in the terminal |
+| [questionary](https://pypi.org/project/questionary/) | Interactive menus you control with the arrow keys, text input and yes/no questions |
+| [pyfiglet](https://pypi.org/project/pyfiglet/) | The big ASCII-art title shown when the app starts |
+| [ollama](https://pypi.org/project/ollama/) | Talking to the local AI model for the "Interview with AI" quiz |
+
+#### Built-in Python modules
+| Module | What it's used for |
+|---|---|
+| `json` | Reading and saving characters, questions, ratings and quiz results |
+| `pathlib` | Building file paths that work on any operating system |
+| `datetime` | Saving the date and time of ratings and quiz results |
+| `re` | Turning character names into IDs (e.g. `Carl "CJ" Johnson` → `carl-cj-johnson`) |
+| `typing` | Type hints |
+
+#### Other tools
+- [Ollama](https://ollama.com) app with the `llama3.2:3b` model, only needed for the AI interview.
+
 ## Credits
 Character information is summarized from the [GTA Wiki](https://gta.fandom.com), [Red Dead Wiki](https://reddead.fandom.com) and [Bully Wiki](https://bully.fandom.com) (CC BY-SA). This is an unofficial student project; all characters belong to Rockstar Games.
