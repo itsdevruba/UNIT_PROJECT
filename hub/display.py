@@ -10,11 +10,18 @@ from hub.config import CRITERIA, TIERS, TRAITS, WEAK_MATCH_PERCENT
 
 console = Console()
 
-TIER_COLORS = {"S": "bold yellow", "A": "bold green", "B": "bold cyan", "C": "bold magenta", "D": "bold red"}
+TIER_COLORS = {
+    "S": "bold yellow",
+    "A": "bold green",
+    "B": "bold cyan",
+    "C": "bold magenta",
+    "D": "bold red",
+}
 SERIES_COLORS = {"GTA": "bright_green", "Red Dead": "red3", "Bully": "orange3"}
 
 
 # ---------- small helpers ----------
+
 
 def tier_badge(tier: str | None) -> str:
     """Return a colored tier letter, or a dim dash if not rated."""
@@ -25,23 +32,28 @@ def tier_badge(tier: str | None) -> str:
 
 
 def series_label(series: str) -> str:
+    """Return the series name in its color."""
     color = SERIES_COLORS.get(series, "white")
     return f"[{color}]{series}[/{color}]"
 
 
 def success(message: str) -> None:
+    """Print a green success message."""
     console.print(f"[green]{message}[/green]")
 
 
 def error(message: str) -> None:
+    """Print a red error message."""
     console.print(f"[bold red]Error:[/bold red] [red]{message}[/red]")
 
 
 def warning(message: str) -> None:
+    """Print a yellow note."""
     console.print(f"[bold yellow]Note:[/bold yellow] [yellow]{message}[/yellow]")
 
 
 # ---------- screens ----------
+
 
 def show_banner() -> None:
     """Print the big title and a short welcome line."""
@@ -51,14 +63,18 @@ def show_banner() -> None:
     console.print("[dim]  GTA · Red Dead · Bully — rate, rank and find your match[/dim]\n")
 
 
-def show_characters(characters: list[dict], ratings: dict | None = None, title: str = "Characters") -> None:
+def show_characters(
+    characters: list[dict], ratings: dict | None = None, title: str = "Characters"
+) -> None:
     """Print a table: name, series, game, role, affiliation, and the user's tier if rated."""
     if not characters:
         warning("No characters found.")
         return
 
     ratings = ratings or {}
-    table = Table(title=f"[bold]{title}[/bold] [dim]({len(characters)})[/dim]", box=box.SIMPLE_HEAVY)
+    table = Table(
+        title=f"[bold]{title}[/bold] [dim]({len(characters)})[/dim]", box=box.SIMPLE_HEAVY
+    )
     table.add_column("#", justify="right", style="dim")
     table.add_column("Name", style="bold")
     table.add_column("Series")
@@ -82,7 +98,9 @@ def show_characters(characters: list[dict], ratings: dict | None = None, title: 
     console.print(table)
 
 
-def show_character_details(character: dict, spoilers: bool = False, rating: dict | None = None) -> None:
+def show_character_details(
+    character: dict, spoilers: bool = False, rating: dict | None = None
+) -> None:
     """Print one character's full info. Only show spoiler_notes if `spoilers` is True."""
     lines = [
         f"[bold]Series:[/bold]       {series_label(character['series'])}",
@@ -105,10 +123,19 @@ def show_character_details(character: dict, spoilers: bool = False, rating: dict
         if spoilers:
             lines.append(f"[bold red]Spoilers:[/bold red] {character['spoiler_notes']}")
         else:
-            lines.append("[dim]Story notes hidden. Turn off spoiler-free mode in Settings to see them.[/dim]")
+            lines.append(
+                "[dim]Story notes hidden. Turn off spoiler-free mode in Settings to see them.[/dim]"
+            )
 
-    console.print(Panel("\n".join(lines), title=f"[bold yellow]{character['name']}[/bold yellow]",
-                        border_style="yellow", padding=(1, 2), width=min(console.width, 90)))
+    console.print(
+        Panel(
+            "\n".join(lines),
+            title=f"[bold yellow]{character['name']}[/bold yellow]",
+            border_style="yellow",
+            padding=(1, 2),
+            width=min(console.width, 90),
+        )
+    )
 
 
 def score_bar(score: float, maximum: int = 10, width: int = 20) -> str:
@@ -119,11 +146,19 @@ def score_bar(score: float, maximum: int = 10, width: int = 20) -> str:
 
 def show_rating_result(name: str, overall: float, tier: str) -> None:
     """Print the result right after the user rates a character."""
-    console.print(Panel(f"[bold]{name}[/bold]\nOverall score: [bold]{overall}[/bold] / 10   Tier: {tier_badge(tier)}",
-                        border_style="green", expand=False))
+    console.print(
+        Panel(
+            f"[bold]{name}[/bold]\n"
+            f"Overall score: [bold]{overall}[/bold] / 10   Tier: {tier_badge(tier)}",
+            border_style="green",
+            expand=False,
+        )
+    )
 
 
-def show_tier_list(tier_list: dict[str, list[tuple[str, float]]], title: str = "My Tier List") -> None:
+def show_tier_list(
+    tier_list: dict[str, list[tuple[str, float]]], title: str = "My Tier List"
+) -> None:
     """Print the tier list with a color per tier."""
     if not any(tier_list.values()):
         warning("No rated characters yet.")
@@ -143,8 +178,9 @@ def show_tier_list(tier_list: dict[str, list[tuple[str, float]]], title: str = "
     console.print(table)
 
 
-def show_comparison(first: dict, second: dict, first_rating: dict, second_rating: dict,
-                    winners: dict[str, str]) -> None:
+def show_comparison(
+    first: dict, second: dict, first_rating: dict, second_rating: dict, winners: dict[str, str]
+) -> None:
     """Print a side-by-side comparison table of two rated characters."""
     table = Table(title="[bold]Head to Head[/bold]", box=box.SIMPLE_HEAVY)
     table.add_column("Criterion")
@@ -160,8 +196,14 @@ def show_comparison(first: dict, second: dict, first_rating: dict, second_rating
         table.add_row(criterion.capitalize(), a_text, b_text)
 
     table.add_section()
-    table.add_row("[bold]Overall[/bold]", f"[bold]{first_rating['overall']}[/bold]", f"[bold]{second_rating['overall']}[/bold]")
-    table.add_row("[bold]Tier[/bold]", tier_badge(first_rating["tier"]), tier_badge(second_rating["tier"]))
+    table.add_row(
+        "[bold]Overall[/bold]",
+        f"[bold]{first_rating['overall']}[/bold]",
+        f"[bold]{second_rating['overall']}[/bold]",
+    )
+    table.add_row(
+        "[bold]Tier[/bold]", tier_badge(first_rating["tier"]), tier_badge(second_rating["tier"])
+    )
     console.print(table)
 
     if first_rating["overall"] > second_rating["overall"]:
@@ -172,8 +214,12 @@ def show_comparison(first: dict, second: dict, first_rating: dict, second_rating
         console.print("It's a tie.\n")
 
 
-def show_quiz_result(matches: list[tuple[str, int]], user_traits: dict[str, float], player: str = "You",
-                     reason: str = "") -> None:
+def show_quiz_result(
+    matches: list[tuple[str, int]],
+    user_traits: dict[str, float],
+    player: str = "You",
+    reason: str = "",
+) -> None:
     """Print the best match, runner-ups, and a simple bar for each trait."""
     if not matches:
         warning("No match found.")
@@ -181,20 +227,38 @@ def show_quiz_result(matches: list[tuple[str, int]], user_traits: dict[str, floa
 
     best_name, best_score = matches[0]
     verb = "You are" if player == "You" else f"{player} is"
-    lines = [f"[bold yellow]{verb}... {best_name}[/bold yellow]   [green]{best_score}% match[/green]"]
+    lines = [
+        f"[bold yellow]{verb}... {best_name}[/bold yellow]   [green]{best_score}% match[/green]"
+    ]
     if len(matches) > 1:
         runner_ups = " · ".join(f"{name} {score}%" for name, score in matches[1:])
         lines.append(f"[dim]Runner-ups: {runner_ups}[/dim]")
     if best_score < WEAK_MATCH_PERCENT:
-        lines.append("[dim]Your mix of traits is unusual, so no character fits you perfectly.[/dim]")
+        lines.append(
+            "[dim]Your mix of traits is unusual, so no character fits you perfectly.[/dim]"
+        )
     if reason:
         lines.append("")
         lines.append(f"[italic]{reason}[/italic]")
     lines.append("")
     for trait in TRAITS:
         lines.append(f"{trait:<9} {score_bar(user_traits[trait])}")
-    console.print(Panel("\n".join(lines), border_style="yellow", padding=(1, 2),
-                        width=min(console.width, 80) if reason else None, expand=bool(reason)))
+    console.print(
+        Panel(
+            "\n".join(lines),
+            border_style="yellow",
+            padding=(1, 2),
+            width=min(console.width, 80) if reason else None,
+            expand=bool(reason),
+        )
+    )
+
+
+def show_saved_result(result: dict) -> None:
+    """Show a saved quiz result record (from the quiz or the AI interview)."""
+    show_quiz_result(
+        result["matches"], result["traits"], result["player"], result.get("reason", "")
+    )
 
 
 def show_quiz_results(results: list[dict]) -> None:
@@ -203,7 +267,9 @@ def show_quiz_results(results: list[dict]) -> None:
         warning("Nobody has taken the quiz yet.")
         return
 
-    table = Table(title=f"[bold]Quiz Results[/bold] [dim]({len(results)})[/dim]", box=box.SIMPLE_HEAVY)
+    table = Table(
+        title=f"[bold]Quiz Results[/bold] [dim]({len(results)})[/dim]", box=box.SIMPLE_HEAVY
+    )
     table.add_column("#", justify="right", style="dim")
     table.add_column("Player", style="bold")
     table.add_column("Series")
@@ -214,8 +280,15 @@ def show_quiz_results(results: list[dict]) -> None:
 
     for number, result in enumerate(results, start=1):
         name, score = result["matches"][0]
-        table.add_row(str(number), result["player"], series_label(result["series"]),
-                      result.get("mode", "Quiz"), name, f"{score}%", result["taken_at"])
+        table.add_row(
+            str(number),
+            result["player"],
+            series_label(result["series"]),
+            result.get("mode", "Quiz"),
+            name,
+            f"{score}%",
+            result["taken_at"],
+        )
     console.print(table)
 
 
@@ -237,4 +310,6 @@ def show_users(users: list[dict]) -> None:
 def show_traits(character: dict) -> None:
     """Print a character's quiz traits as bars (admin view)."""
     lines = [f"{trait:<9} {score_bar(character['traits'][trait])}" for trait in TRAITS]
-    console.print(Panel("\n".join(lines), title=f"[bold]{character['name']} traits[/bold]", expand=False))
+    console.print(
+        Panel("\n".join(lines), title=f"[bold]{character['name']} traits[/bold]", expand=False)
+    )

@@ -21,8 +21,9 @@ def pick_from(message: str, options: list[str], keep_order: bool = False) -> str
     return answer
 
 
-def pick_character(options: list[dict], ratings: dict | None = None,
-                   message: str = "Choose a character:") -> dict | None:
+def pick_character(
+    options: list[dict], ratings: dict | None = None, message: str = "Choose a character:"
+) -> dict | None:
     """Let the user pick one character from `options`. Returns None on Back or Ctrl+C."""
     if not options:
         return None
@@ -50,13 +51,25 @@ def confirm(message: str) -> bool:
 def pick_result(results: list[dict], message: str = "Open a result:") -> dict | None:
     """Pick one quiz result from a list. Returns None on Back or Ctrl+C."""
     choices = [
-        Choice(title=f"{result['player']}  ({result['series']}, {result['taken_at']})", value=str(index))
+        Choice(
+            title=f"{result['player']}  ({result['series']}, {result['taken_at']})",
+            value=str(index),
+        )
         for index, result in enumerate(results)
     ]
     picked = questionary.select(message, choices=choices + [BACK]).ask()
     if picked is None or picked == BACK:
         return None
     return results[int(picked)]
+
+
+def browse_results(results: list[dict]) -> None:
+    """Let the user open results one by one until they go back."""
+    while results:
+        result = pick_result(results)
+        if result is None:
+            return
+        display.show_saved_result(result)
 
 
 def view_characters(characters: list[dict], ratings: dict, spoilers: bool, title: str) -> None:

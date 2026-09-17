@@ -108,7 +108,7 @@ def add_character(
         "year": None,
         "role": role,
         "affiliation": affiliation.strip() or "None",
-        "traits": {trait: 5 for trait in TRAITS},
+        "traits": dict.fromkeys(TRAITS, 5),
         "bio": bio.strip() or "A custom character added by the user.",
         "spoiler_notes": "",
         "community_tier": "",

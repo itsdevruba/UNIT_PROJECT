@@ -5,15 +5,17 @@ from datetime import datetime
 import questionary
 
 from hub import display
-from hub.config import TRAITS, TOP_MATCHES, QUIZ_STRETCH
+from hub.config import QUIZ_STRETCH, TOP_MATCHES, TRAITS
 
 
 def max_points(questions: list[dict]) -> dict[str, int]:
     """Highest absolute points each trait can reach across all questions (used for scaling)."""
-    limits = {trait: 0 for trait in TRAITS}
+    limits = dict.fromkeys(TRAITS, 0)
     for question in questions:
         for trait in TRAITS:
-            limits[trait] += max(abs(effects.get(trait, 0)) for effects in question["options"].values())
+            limits[trait] += max(
+                abs(effects.get(trait, 0)) for effects in question["options"].values()
+            )
     return limits
 
 
@@ -28,7 +30,7 @@ def run_quiz(questions: list[dict]) -> dict[str, int] | None:
 
     Returns None if the user cancels with Ctrl+C.
     """
-    totals = {trait: 0 for trait in TRAITS}
+    totals = dict.fromkeys(TRAITS, 0)
     for number, question in enumerate(questions, start=1):
         answer = questionary.select(
             f"({number}/{len(questions)}) {question['text']}",
@@ -40,7 +42,9 @@ def run_quiz(questions: list[dict]) -> dict[str, int] | None:
     return totals
 
 
-def to_scale(totals: dict[str, int], limits: dict[str, int], stretch: float = QUIZ_STRETCH) -> dict[str, float]:
+def to_scale(
+    totals: dict[str, int], limits: dict[str, int], stretch: float = QUIZ_STRETCH
+) -> dict[str, float]:
     """Map trait points to a 0-10 scale where 5 is neutral.
 
     Points are divided by the trait's limit (giving -1 to +1), multiplied by `stretch`
@@ -59,9 +63,11 @@ def distance(a: dict[str, float], b: dict[str, float]) -> float:
     return sum((a[trait] - b[trait]) ** 2 for trait in TRAITS) ** 0.5
 
 
-def best_matches(user: dict[str, float], characters: list[dict], top: int = TOP_MATCHES) -> list[tuple[str, int]]:
+def best_matches(
+    user: dict[str, float], characters: list[dict], top: int = TOP_MATCHES
+) -> list[tuple[str, int]]:
     """Return the `top` closest characters as (name, match_percent), best first."""
-    worst = distance({trait: 0 for trait in TRAITS}, {trait: 10 for trait in TRAITS})
+    worst = distance(dict.fromkeys(TRAITS, 0), dict.fromkeys(TRAITS, 10))
     results = []
     for character in characters:
         match = round((1 - distance(user, character["traits"]) / worst) * 100)
@@ -70,7 +76,9 @@ def best_matches(user: dict[str, float], characters: list[dict], top: int = TOP_
     return results[:top]
 
 
-def take_quiz(questions: list[dict], characters: list[dict], series: str, player: str) -> dict | None:
+def take_quiz(
+    questions: list[dict], characters: list[dict], series: str, player: str
+) -> dict | None:
     """Run the full quiz for one series and return the result record (or None if cancelled)."""
     if not questions:
         display.error("No quiz questions found.")

@@ -5,7 +5,7 @@ from datetime import datetime
 import questionary
 
 from hub import display
-from hub.config import CRITERIA, TIERS, MIN_SCORE, MAX_SCORE
+from hub.config import CRITERIA, MAX_SCORE, MIN_SCORE, TIERS
 
 CRITERIA_HINTS = {
     "writing": "How well written is the character and their story?",
@@ -27,9 +27,13 @@ def validate_score(raw: str) -> int:
     try:
         score = int(raw)
     except ValueError:
-        raise ValueError(f"'{raw}' is not a whole number. Enter a number from {MIN_SCORE} to {MAX_SCORE}.")
+        raise ValueError(
+            f"'{raw}' is not a whole number. Enter a number from {MIN_SCORE} to {MAX_SCORE}."
+        ) from None
     if not MIN_SCORE <= score <= MAX_SCORE:
-        raise ValueError(f"{score} is out of range. Enter a number from {MIN_SCORE} to {MAX_SCORE}.")
+        raise ValueError(
+            f"{score} is out of range. Enter a number from {MIN_SCORE} to {MAX_SCORE}."
+        )
     return score
 
 
@@ -91,8 +95,10 @@ def rate_character(character: dict, ratings: dict) -> dict | None:
     """
     previous = ratings.get(character["id"])
     if previous:
-        display.console.print(f"[dim]You already rated {character['name']} "
-                              f"({previous['overall']}). Press Enter to keep a score.[/dim]")
+        display.console.print(
+            f"[dim]You already rated {character['name']} "
+            f"({previous['overall']}). Press Enter to keep a score.[/dim]"
+        )
 
     scores = ask_scores(previous["scores"] if previous else None)
     if scores is None:
@@ -118,12 +124,14 @@ def build_tier_list(ratings: dict, characters: list[dict]) -> dict[str, list[tup
         rating = ratings[character["id"]]
         tier_list[rating["tier"]].append((character["name"], rating["overall"]))
 
-    for tier in tier_list:
-        tier_list[tier].sort(key=lambda entry: entry[1], reverse=True)
+    for entries in tier_list.values():
+        entries.sort(key=lambda entry: entry[1], reverse=True)
     return tier_list
 
 
-def compare(first_name: str, first_rating: dict, second_name: str, second_rating: dict) -> dict[str, str]:
+def compare(
+    first_name: str, first_rating: dict, second_name: str, second_rating: dict
+) -> dict[str, str]:
     """For each criterion, return the name of the character with the higher score (or "Tie")."""
     winners = {}
     for criterion in CRITERIA:

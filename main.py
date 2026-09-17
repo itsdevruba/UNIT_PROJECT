@@ -21,6 +21,7 @@ def load_ratings() -> dict:
 
 
 def main() -> None:
+    """Load the data, show the banner, and run the start menu until the user exits."""
     characters = load_json(config.CHARACTERS_FILE, default=[])
     questions = load_json(config.QUESTIONS_FILE, default=[])
 

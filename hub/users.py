@@ -65,7 +65,10 @@ def results_for(results: list[dict], name: str) -> list[dict]:
 
 
 def list_users(all_ratings: dict, results: list[dict]) -> list[dict]:
-    """Everyone who has ratings or quiz results: [{"name", "ratings", "quiz_results"}], sorted by name."""
+    """Everyone with ratings or quiz results, sorted by name.
+
+    Each item looks like {"name": ..., "ratings": 3, "quiz_results": 1}.
+    """
     names = list(all_ratings)
     for result in results:
         if not any(same_name(result["player"], name) for name in names):
@@ -74,11 +77,13 @@ def list_users(all_ratings: dict, results: list[dict]) -> list[dict]:
     users = []
     for name in names:
         key = find_user_key(all_ratings, name)
-        users.append({
-            "name": name,
-            "ratings": len(all_ratings[key]) if key else 0,
-            "quiz_results": len(results_for(results, name)),
-        })
+        users.append(
+            {
+                "name": name,
+                "ratings": len(all_ratings[key]) if key else 0,
+                "quiz_results": len(results_for(results, name)),
+            }
+        )
     users.sort(key=lambda user: user["name"].lower())
     return users
 

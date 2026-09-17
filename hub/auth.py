@@ -18,7 +18,9 @@ HASH_ITERATIONS = 100_000
 
 def hash_password(password: str, salt: str) -> str:
     """Return the hex PBKDF2-SHA256 hash of `password` with `salt`."""
-    digest = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), bytes.fromhex(salt), HASH_ITERATIONS)
+    digest = hashlib.pbkdf2_hmac(
+        "sha256", password.encode("utf-8"), bytes.fromhex(salt), HASH_ITERATIONS
+    )
     return digest.hex()
 
 

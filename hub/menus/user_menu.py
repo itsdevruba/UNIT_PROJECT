@@ -2,14 +2,17 @@
 
 import questionary
 
-from hub import ai
+from hub import ai, config, display, quiz, users
 from hub import characters as chars
-from hub import config
-from hub import display
-from hub import quiz
 from hub import ratings as rt
-from hub import users
-from hub.menus.helpers import BACK, confirm, pick_character, pick_from, pick_result, view_characters
+from hub.menus.helpers import (
+    BACK,
+    browse_results,
+    confirm,
+    pick_character,
+    pick_from,
+    view_characters,
+)
 from hub.storage import load_json, save_json
 
 USER_MENU = [
@@ -25,6 +28,7 @@ USER_MENU = [
 
 
 def save_ratings(all_ratings: dict) -> None:
+    """Save every user's ratings and confirm."""
     if save_json(config.RATINGS_FILE, all_ratings):
         display.success("Ratings saved.")
 
@@ -32,7 +36,9 @@ def save_ratings(all_ratings: dict) -> None:
 def browse_menu(characters: list[dict], my_ratings: dict, settings: dict) -> None:
     """Filter by game or role, then show the table and let the user open a character."""
     while True:
-        mode = questionary.select("Browse by:", choices=["All characters", "Game", "Role", BACK]).ask()
+        mode = questionary.select(
+            "Browse by:", choices=["All characters", "Game", "Role", BACK]
+        ).ask()
 
         if mode is None or mode == BACK:
             return
@@ -49,10 +55,13 @@ def browse_menu(characters: list[dict], my_ratings: dict, settings: dict) -> Non
 
         if value is None:
             continue
-        view_characters(chars.filter_by(characters, field, value), my_ratings, settings["spoilers"], value)
+        view_characters(
+            chars.filter_by(characters, field, value), my_ratings, settings["spoilers"], value
+        )
 
 
 def search_menu(characters: list[dict], my_ratings: dict, settings: dict) -> None:
+    """Search characters by part of their name and open the results."""
     query = questionary.text("Type a name (or part of it):").ask()
     if query is None:
         return
@@ -68,7 +77,9 @@ def rate_menu(characters: list[dict], all_ratings: dict, my_ratings: dict, setti
     series = pick_from("Which series?", list(chars.get_series(characters)))
     if series is None:
         return
-    character = pick_character(chars.filter_by(characters, "series", series), my_ratings, "Who do you want to rate?")
+    character = pick_character(
+        chars.filter_by(characters, "series", series), my_ratings, "Who do you want to rate?"
+    )
     if character is None:
         return
 
@@ -83,6 +94,7 @@ def rate_menu(characters: list[dict], all_ratings: dict, my_ratings: dict, setti
 
 
 def compare_menu(characters: list[dict], my_ratings: dict) -> None:
+    """Compare two of the user's rated characters criterion by criterion."""
     rated = rt.rated_characters(characters, my_ratings)
     if len(rated) < 2:
         display.warning("Rate at least two characters to compare them.")
@@ -102,8 +114,45 @@ def compare_menu(characters: list[dict], my_ratings: dict) -> None:
     display.show_comparison(first, second, first_rating, second_rating, winners)
 
 
+def my_results_menu(name: str) -> None:
+    """Show this user's quiz results, newest first, and let them open one."""
+    mine = users.results_for(load_json(config.QUIZ_RESULTS_FILE, default=[]), name)
+    mine.reverse()
+    display.show_quiz_results(mine)
+    browse_results(mine)
+
+
+def run_quiz(choice: str, name: str, characters: list[dict], questions: list[dict]) -> None:
+    """Run the regular quiz or the AI interview for one series, then show and save the result."""
+    series = pick_from(f"Match {name} with characters from:", list(chars.get_series(characters)))
+    if series is None:
+        return
+
+    series_characters = chars.filter_by(characters, "series", series)
+    if choice == "Interview with AI":
+        result = ai.take_ai_interview(series_characters, series, name)
+        if result is None:
+            display.warning(
+                "The AI interview didn't finish. You can take the regular quiz instead."
+            )
+            return
+    else:
+        display.console.print(
+            "[dim]Answer the questions honestly. There are no wrong answers.[/dim]"
+        )
+        result = quiz.take_quiz(questions, series_characters, series, name)
+        if result is None:
+            display.warning("Quiz cancelled.")
+            return
+
+    display.show_saved_result(result)
+    results = load_json(config.QUIZ_RESULTS_FILE, default=[])
+    results.append(result)
+    save_json(config.QUIZ_RESULTS_FILE, results)
+
+
 def quiz_menu(name: str, characters: list[dict], questions: list[dict]) -> None:
-    """Take the quiz / see my results / back."""
+    """Take the quiz / interview with AI / see my results / back."""
     while True:
         choice = questionary.select(
             "Which character are you?",
@@ -112,53 +161,29 @@ def quiz_menu(name: str, characters: list[dict], questions: list[dict]) -> None:
 
         if choice is None or choice == BACK:
             return
-
         if choice == "My results":
-            mine = users.results_for(load_json(config.QUIZ_RESULTS_FILE, default=[]), name)
-            mine.reverse()
-            display.show_quiz_results(mine)
-            while mine:
-                result = pick_result(mine)
-                if result is None:
-                    break
-                display.show_quiz_result(result["matches"], result["traits"], result["player"],
-                                         result.get("reason", ""))
-            continue
-
-        series = pick_from(f"Match {name} with characters from:", list(chars.get_series(characters)))
-        if series is None:
-            continue
-
-        series_characters = chars.filter_by(characters, "series", series)
-        if choice == "Interview with AI":
-            result = ai.take_ai_interview(series_characters, series, name)
-            if result is None:
-                display.warning("The AI interview didn't finish. You can take the regular quiz instead.")
-                continue
+            my_results_menu(name)
         else:
-            display.console.print(f"[dim]Answer {len(questions)} questions honestly. There are no wrong answers.[/dim]")
-            result = quiz.take_quiz(questions, series_characters, series, name)
-            if result is None:
-                display.warning("Quiz cancelled.")
-                continue
-
-        display.show_quiz_result(result["matches"], result["traits"], name, result.get("reason", ""))
-        results = load_json(config.QUIZ_RESULTS_FILE, default=[])
-        results.append(result)
-        save_json(config.QUIZ_RESULTS_FILE, results)
+            run_quiz(choice, name, characters, questions)
 
 
 def settings_menu(all_ratings: dict, my_ratings: dict, settings: dict) -> None:
     """Spoiler-free mode on/off, reset my own ratings, back."""
     while True:
-        spoiler_label = "Spoiler-free mode: " + ("OFF (story notes visible)" if settings["spoilers"] else "ON")
-        choice = questionary.select("Settings:", choices=[spoiler_label, "Reset my ratings", BACK]).ask()
+        spoiler_label = "Spoiler-free mode: " + (
+            "OFF (story notes visible)" if settings["spoilers"] else "ON"
+        )
+        choice = questionary.select(
+            "Settings:", choices=[spoiler_label, "Reset my ratings", BACK]
+        ).ask()
 
         if choice is None or choice == BACK:
             return
         if choice == spoiler_label:
             settings["spoilers"] = not settings["spoilers"]
-            display.success("Story notes are now " + ("visible." if settings["spoilers"] else "hidden."))
+            display.success(
+                "Story notes are now " + ("visible." if settings["spoilers"] else "hidden.")
+            )
         elif choice == "Reset my ratings":
             if not my_ratings:
                 display.warning("You have no ratings to reset.")
@@ -167,12 +192,19 @@ def settings_menu(all_ratings: dict, my_ratings: dict, settings: dict) -> None:
                 save_ratings(all_ratings)
 
 
-def run_user_session(name: str, characters: list[dict], all_ratings: dict, questions: list[dict]) -> None:
+def run_user_session(
+    name: str, characters: list[dict], all_ratings: dict, questions: list[dict]
+) -> None:
     """Main loop for one logged-in user."""
-    name = users.find_user_key(all_ratings, name) or name   # use the saved spelling for returning users
+    name = (
+        users.find_user_key(all_ratings, name) or name
+    )  # use the saved spelling for returning users
     my_ratings = users.get_user_ratings(all_ratings, name)
     settings = {"spoilers": False}
-    display.console.print(f"\n[bold]Welcome, {name}.[/bold] [dim]You have rated {len(my_ratings)} character(s).[/dim]\n")
+    display.console.print(
+        f"\n[bold]Welcome, {name}.[/bold] "
+        f"[dim]You have rated {len(my_ratings)} character(s).[/dim]\n"
+    )
 
     while True:
         choice = questionary.select(f"[{name}] What would you like to do?", choices=USER_MENU).ask()
