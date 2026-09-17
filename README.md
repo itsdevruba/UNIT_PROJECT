@@ -3,7 +3,7 @@
 ## Overview
 An interactive command-line app for fans of Rockstar Games. Browse characters from **GTA**, **Red Dead Redemption** and **Bully**, rate them on multiple criteria, build your own tier list, compare characters side by side, and take a personality quiz to find out which character you are most like.
 
-The hub has two kinds of users: **users**, who log in with their name and keep their own ratings and quiz results, and an **admin**, who manages quiz results, users and characters behind a password.
+The hub has two kinds of users: **users**, who log in with their name and keep their own ratings and quiz results, and an **admin**, who manages quiz results, users and characters.
 
 ## Features & User Stories
 
@@ -23,7 +23,6 @@ The hub has two kinds of users: **users**, who log in with their name and keep t
 - Reset my own ratings.
 
 #### As an admin I should be able to:
-- Log in with a password (created the first time the admin logs in).
 - See all quiz results, open any of them, delete one, or delete all.
 - See every user with their number of ratings and quiz results.
 - View a user's tier list, delete their ratings, delete their quiz results, or delete the user completely.
@@ -49,7 +48,7 @@ The hub has two kinds of users: **users**, who log in with their name and keep t
 
 #### Start menu
 - **Log in as user** → type your name. Typing the same name later brings back your data.
-- **Log in as admin** → opens the admin menu. Demo mode is on by default, so no password is needed. To require a password, set `DEMO_MODE = False` in `hub/config.py`; the first time, you will be asked to create one.
+- **Log in as admin** → opens the admin menu.
 - **Exit** → close the app (or press `Ctrl+C`).
 
 #### User menu
@@ -81,7 +80,6 @@ UNIT_PROJECT/
 │   ├── quiz.py             # personality quiz algorithm
 │   ├── ai.py               # AI interview with a local Ollama model
 │   ├── users.py            # names, per-user ratings and quiz results
-│   ├── auth.py             # admin password (hashed, never stored as plain text)
 │   └── menus/
 │       ├── helpers.py      # shared menu pickers
 │       ├── user_menu.py    # everything a user can do
@@ -90,7 +88,7 @@ UNIT_PROJECT/
     ├── characters.json
     └── questions.json
 ```
-Files created while using the app (not tracked by git): `data/user_ratings.json`, `data/quiz_results.json`, `data/admin.json`.
+Files created while using the app (not tracked by git): `data/user_ratings.json`, `data/quiz_results.json`.
 
 ## Credits
 Character information is summarized from the [GTA Wiki](https://gta.fandom.com), [Red Dead Wiki](https://reddead.fandom.com) and [Bully Wiki](https://bully.fandom.com) (CC BY-SA). This is an unofficial student project; all characters belong to Rockstar Games.

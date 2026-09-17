@@ -3,7 +3,6 @@
 import questionary
 
 from hub import config, display, users
-from hub.auth import admin_login
 from hub.menus.admin_menu import run_admin_session
 from hub.menus.user_menu import run_user_session
 from hub.storage import load_json, save_json
@@ -30,8 +29,6 @@ def main() -> None:
         display.error(f"No characters found. Make sure {config.CHARACTERS_FILE} exists.")
         return
     all_ratings = load_ratings()
-    if config.DEMO_MODE:
-        display.warning("Demo mode is on: the admin menu opens without a password.")
 
     try:
         while True:
@@ -44,8 +41,7 @@ def main() -> None:
                 if name:
                     run_user_session(name, characters, all_ratings, questions)
             elif choice == "Log in as admin":
-                if config.DEMO_MODE or admin_login():
-                    run_admin_session(characters, all_ratings)
+                run_admin_session(characters, all_ratings)
     except KeyboardInterrupt:
         pass
     finally:

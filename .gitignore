@@ -220,6 +220,5 @@ __marimo__/
 # Project-specific
 data/user_ratings.json
 data/quiz_results.json
-data/admin.json
 *.bak
 *.tmp

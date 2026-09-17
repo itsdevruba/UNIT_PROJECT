@@ -9,7 +9,6 @@ CHARACTERS_FILE = DATA_DIR / "characters.json"
 RATINGS_FILE = DATA_DIR / "user_ratings.json"
 QUESTIONS_FILE = DATA_DIR / "questions.json"
 QUIZ_RESULTS_FILE = DATA_DIR / "quiz_results.json"
-ADMIN_FILE = DATA_DIR / "admin.json"
 
 # ---------- Rating ----------
 MIN_SCORE = 0
@@ -46,12 +45,7 @@ QUIZ_STRETCH = 2.5
 OLLAMA_MODEL = "llama3.2:3b"
 
 # ---------- Users & admin ----------
-# Demo mode lets anyone try the app right away: the admin menu opens without a password.
-# Set it to False to require the admin password.
-DEMO_MODE = True
 GUEST_NAME = "Guest"  # owner of ratings saved before user accounts existed
-MIN_PASSWORD_LENGTH = 4
-MAX_LOGIN_ATTEMPTS = 3
 
 # ---------- Settings ----------
 SERIES: list[str] = ["GTA", "Red Dead", "Bully"]
